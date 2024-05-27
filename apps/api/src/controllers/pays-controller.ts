@@ -18,8 +18,7 @@ const db = getDB();
 
 const getAll: RequestHandler = async (req, res): Promise<any> => {
     const queryParams = querySchema.parse(req.query);
-    const page = queryParams.page;
-    const limit = queryParams.limit;
+    const { page, limit } = queryParams
 
     try {
         const offset = (page - 1) * limit;
@@ -37,7 +36,7 @@ const getAll: RequestHandler = async (req, res): Promise<any> => {
             totalItems,
         };
     
-        res.json(response);
+        res.status(200).json(response);
     } catch (error: any) {
         res.status(500).json({ error: error.message });
     }
