@@ -1,6 +1,6 @@
 import type { RequestHandler } from "express";
 import { getDB } from "@/db/index.js";
-import type { QueryResult } from "mysql2";
+import { z } from "zod";
 
 interface PaginatedResult<T> {
     data: T;
@@ -9,25 +9,30 @@ interface PaginatedResult<T> {
     totalItems: number;
 }
 
+const querySchema = z.object({
+    page: z.string().transform((val) => parseInt(val, 10)).optional().default('1').refine(val => !isNaN(val) && val > 0),
+    limit: z.string().transform((val) => parseInt(val, 10)).optional().default('10').refine(val => !isNaN(val) && val > 0),
+});
+
 const db = getDB();
 
 const getAll: RequestHandler = async (req, res): Promise<any> => {
-    const page: number = parseInt(req.query.page as string) || 1;
-    const limit: number = parseInt(req.query.limit as string) || 10;
+    const queryParams = querySchema.parse(req.query);
+    const page = queryParams.page;
+    const limit = queryParams.limit;
 
     try {
-        const offset: number = (page - 1) * limit;
-    
-        const results: QueryResult = await db.query(`SELECT COUNT(*) as count FROM ${'f'}`);
-        const totalItems: number = (results as any)[0].count;
-        const items: QueryResult = await db.query(`SELECT * FROM ${'f'} LIMIT ? OFFSET ?`, [limit, offset]);
-        const totalPages: number = Math.ceil(totalItems / limit);
+        const offset = (page - 1) * limit;
+        const results = await db.query(`SELECT COUNT(*) as count FROM ${process.env.DB_TABLE_PAYS}`);
+        const totalItems = (results as any)[0].count;
+        const data = await db.query(`SELECT * FROM ${process.env.DB_TABLE_PAYS} LIMIT ? OFFSET ?`, [limit, offset]);
+        const totalPages = Math.ceil(totalItems / limit);
     
         const response: PaginatedResult<any> = {
-            data: items,
+            data,
             currentPage: page,
-            totalPages: totalPages,
-            totalItems: totalItems
+            totalPages,
+            totalItems,
         };
     
         res.json(response);
