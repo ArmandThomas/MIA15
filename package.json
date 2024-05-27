@@ -1,0 +1,15 @@
+{
+  "name": "mia15",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "format": "biome format --write .",
+    "lint": "biome lint .",
+    "dev:api": "pnpm --filter api dev",
+    "dev:web": "pnpm --filter web dev",
+    "dev": "pnpm -r dev"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.7.3"
+  }
+}
