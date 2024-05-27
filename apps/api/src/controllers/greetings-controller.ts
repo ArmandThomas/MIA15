@@ -1,5 +1,7 @@
 import type { RequestHandler } from "express";
 
+// TODO: Remove this controller (example only)
+
 const sayHello: RequestHandler = (req, res): void => {
   res.json({ message: "Hello, World!" });
 }

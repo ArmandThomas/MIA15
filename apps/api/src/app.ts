@@ -7,6 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// TODO: Remove this route (example only)
 app.get("/", (req, res) => {
   res.json({ message: "Index" });
 });
