@@ -23,9 +23,11 @@ const getAll: RequestHandler = async (req, res): Promise<any> => {
 
     try {
         const offset = (page - 1) * limit;
-        const results = await db.query(`SELECT COUNT(*) as count FROM ${process.env.DB_TABLE_PAYS}`);
-        const totalItems = (results as any)[0].count;
-        const data = await db.query(`SELECT * FROM ${process.env.DB_TABLE_PAYS} LIMIT ? OFFSET ?`, [limit, offset]);
+        const [count, data] = await Promise.all([
+            db.query(`SELECT COUNT(*) as count FROM ${process.env.DB_TABLE_PAYS}`),
+            db.query(`SELECT * FROM ${process.env.DB_TABLE_PAYS} LIMIT ? OFFSET ?`, [limit, offset])
+        ]);
+        const totalItems = (count as any)[0].count;
         const totalPages = Math.ceil(totalItems / limit);
     
         const response: PaginatedResult<any> = {
