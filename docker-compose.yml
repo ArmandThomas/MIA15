@@ -1,0 +1,28 @@
+volumes:
+  db-data:
+  
+networks:
+  host:
+
+services:
+  db:
+    image: mysql:8
+    container_name: db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: r00tp4ssw0rd
+      MYSQL_DATABASE: mia15
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: p4ssw0rd
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    ports:
+      - 3306:3306
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - host
