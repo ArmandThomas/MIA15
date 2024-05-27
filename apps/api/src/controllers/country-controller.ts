@@ -1,20 +1,26 @@
 import type { RequestHandler } from "express";
 import { CountryService } from "@/services/country-service.js";
-import { insertCountrySchema } from "@/database/schema/countries.js";
+import { z } from "zod";
 
-const createCountry: RequestHandler = async (req, res, next) => {
-  const country = insertCountrySchema.safeParse(req.body);
+const findCountry: RequestHandler = async (req, res, next) => {
+  const countryId = z.coerce.number().safeParse(req.params.id);
 
-  if (!country.success) {
+  if (!countryId.success) {
     res.status(400).json({ error: "Invalid request body" });
     return next();
   }
 
-  const createdCountry = await CountryService.create(country.data);
-  res.json(createdCountry);
+  const country = await CountryService.findOne(countryId.data);
+
+  if (!country) {
+    res.status(404).json({ error: "Country not found" });
+    return next();
+  }
+
+  res.json(country);
   next();
 };
 
 export const countryController = {
-  createCountry,
+  findCountry,
 };

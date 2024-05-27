@@ -1,9 +1,11 @@
-import { mysqlTable, varchar, serial } from "drizzle-orm/mysql-core";
+import { mysqlTable, varchar, char, serial } from "drizzle-orm/mysql-core";
 import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
 
 export const countries = mysqlTable("countries", {
   id: serial("id").primaryKey(),
   name: varchar("name", { length: 256 }).unique().notNull(),
+  code: varchar("code", { length: 4 }).unique(),
+  code_iso: char("code_iso", { length: 3 }).unique().notNull(),
 });
 
 export type Country = typeof countries.$inferSelect;
