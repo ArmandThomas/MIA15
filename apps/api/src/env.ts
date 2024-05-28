@@ -11,7 +11,11 @@ export const env = createEnv({
   server: {
     SERVER_HOST: Type.STRING.default("localhost"),
     SERVER_PORT: Type.NUMBER.int().positive().default(3000),
-    // DATABASE_URL: Type.STRING.url(),
+    DATABASE_HOST: Type.STRING.default("localhost"),
+    DATABASE_PORT: Type.NUMBER.int().positive().default(3306),
+    DATABASE_NAME: Type.STRING,
+    DATABASE_USER: Type.STRING,
+    DATABASE_PASSWORD: Type.STRING,
   },
   runtimeEnv: process.env,
   emptyStringAsUndefined: true,
