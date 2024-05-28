@@ -1,4 +1,4 @@
-import { mysqlTable, varchar, serial, smallint, text } from "drizzle-orm/mysql-core";
+import { mysqlTable, varchar, serial, smallint, text, bigint } from "drizzle-orm/mysql-core";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 import { relations } from "drizzle-orm";
 import { countries } from "./countries.js";
@@ -6,10 +6,12 @@ import { countries } from "./countries.js";
 export const athletes = mysqlTable("athletes", {
   id: serial("id").primaryKey(),
   fullName: varchar("full_name", { length: 256 }).notNull(),
-  firstEdition: serial("first_edition").notNull(),
+  firstEdition: bigint("first_edition", { mode: "number", unsigned: true }).notNull(),
   birthYear: smallint("birth_year").notNull(),
   bio: text("bio"),
-  idCountry: serial("id_country").notNull().references(() => countries.id),
+  idCountry: bigint("id_country", { mode: "number", unsigned: true })
+    .notNull()
+    .references(() => countries.id),
 });
 
 export const athletesRelations = relations(athletes, ({ one }) => ({
