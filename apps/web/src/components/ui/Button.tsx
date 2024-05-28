@@ -37,7 +37,7 @@ const buttonVariants = tv({
         // text color
         "text-gray-900 dark:text-gray-50",
         // background color
-        " bg-white dark:bg-gray-950",
+        "bg-white dark:bg-gray-950",
         //hover color
         "hover:bg-gray-50 dark:hover:bg-gray-900/60",
         // disabled
@@ -72,10 +72,45 @@ const buttonVariants = tv({
         "disabled:bg-red-300 disabled:text-white",
         "disabled:dark:bg-red-950 disabled:dark:text-red-400",
       ],
+      ghost: [
+        // border
+        "border-transparent",
+        // text color
+        "text-gray-900 dark:text-gray-50",
+        // background color
+        "bg-transparent",
+        // hover color
+        "hover:bg-gray-50 dark:hover:bg-gray-900/60",
+        // disabled
+        "disabled:text-gray-400",
+        "disabled:dark:text-gray-600",
+      ],
+      link: [
+        // base
+        "underline-offset-4",
+        // border
+        "border-transparent",
+        // text color
+        "text-gray-900 dark:text-gray-50",
+        // background color
+        "bg-transparent",
+        // hover
+        "hover:underline",
+        // disabled
+        "disabled:text-gray-400",
+        "disabled:dark:text-gray-600",
+      ],
+    },
+    size: {
+      default: "h-9 px-4 py-2",
+      sm: "h-8 rounded-md px-3 text-xs",
+      lg: "h-10 rounded-md px-8",
+      icon: "h-9 w-9",
     },
   },
   defaultVariants: {
     variant: "primary",
+    size: "default",
   },
 });
 

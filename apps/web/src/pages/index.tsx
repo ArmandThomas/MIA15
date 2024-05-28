@@ -1,5 +1,8 @@
 import { Header } from "@/components/Header";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/Tabs";
+import { Card } from "@/components/ui/Card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs";
+import { LineChartAxisLabelsExample } from "@/components/ExampleLineChart";
+import { TableExample } from "@/components/ExampleTable";
 
 export default function Home() {
   return (
@@ -13,9 +16,7 @@ export default function Home() {
         <Tabs defaultValue="overview" className="space-y-12">
           <TabsList>
             <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="analytics" disabled>
-              Analytics
-            </TabsTrigger>
+            <TabsTrigger value="analytics">Analytics</TabsTrigger>
             <TabsTrigger value="reports" disabled>
               Reports
             </TabsTrigger>
@@ -23,6 +24,18 @@ export default function Home() {
               Notifications
             </TabsTrigger>
           </TabsList>
+
+          <TabsContent value="overview" className="space-y-4">
+            <Card className="p-4">
+              <LineChartAxisLabelsExample />
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="analytics" className="space-y-4">
+            <Card className="p-4">
+              <TableExample />
+            </Card>
+          </TabsContent>
         </Tabs>
       </div>
     </>

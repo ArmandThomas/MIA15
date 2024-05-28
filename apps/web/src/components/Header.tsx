@@ -2,9 +2,9 @@ import { Navbar, type Route } from "./Navbar";
 import { Searchbar } from "./Searchbar";
 
 const routes: Route[] = [
-  { name: "Home", path: "/" },
-  { name: "About", path: "/about" },
-  { name: "Contact", path: "/contact" },
+  { name: "Accueil", path: "/" },
+  { name: "Visualisation", path: "/visualisation" },
+  { name: "Prédictions", path: "/predictions" },
 ];
 
 export function Header() {
