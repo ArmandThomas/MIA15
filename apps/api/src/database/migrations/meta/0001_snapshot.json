@@ -1,8 +1,8 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "7a810655-3ef5-432e-bf35-e641a9d8c988",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "6e14a413-7689-4d54-a5bc-f6b43c45f810",
+  "prevId": "7a810655-3ef5-432e-bf35-e641a9d8c988",
   "tables": {
     "countries": {
       "name": "countries",
@@ -31,13 +31,6 @@
         "code_iso": {
           "name": "code_iso",
           "type": "char(3)",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "phone_code": {
-          "name": "phone_code",
-          "type": "varchar(4)",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
@@ -70,12 +63,6 @@
           "name": "countries_code_iso_unique",
           "columns": [
             "code_iso"
-          ]
-        },
-        "countries_phone_code_unique": {
-          "name": "countries_phone_code_unique",
-          "columns": [
-            "phone_code"
           ]
         }
       }

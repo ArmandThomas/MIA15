@@ -1,5 +1,7 @@
 import { mysqlTable, varchar, char, serial } from "drizzle-orm/mysql-core";
-import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
+import { createInsertSchema, createSelectSchema } from "drizzle-zod";
+import { relations } from "drizzle-orm";
+import { athletes } from "./athletes.js";
 
 export const countries = mysqlTable("countries", {
   id: serial("id").primaryKey(),
@@ -7,6 +9,10 @@ export const countries = mysqlTable("countries", {
   code: varchar("code", { length: 4 }).unique(),
   code_iso: char("code_iso", { length: 3 }).unique().notNull(),
 });
+
+export const countriesRelations = relations(countries, ({ many }) => ({
+  athletes: many(athletes),
+}));
 
 export type Country = typeof countries.$inferSelect;
 export type NewCountry = typeof countries.$inferInsert;
