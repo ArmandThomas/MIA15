@@ -1,0 +1,533 @@
+<?xml version='1.0' encoding='utf-8'?>
+<data>
+  <row>
+    <index>0</index>
+    <game_slug>beijing-2022</game_slug>
+    <game_end_date>2022-02-20T12:00:00Z</game_end_date>
+    <game_start_date>2022-02-04T15:00:00Z</game_start_date>
+    <game_location>China</game_location>
+    <game_name>Beijing 2022</game_name>
+    <game_season>Winter</game_season>
+    <game_year>2022</game_year>
+  </row>
+  <row>
+    <index>1</index>
+    <game_slug>tokyo-2020</game_slug>
+    <game_end_date>2021-08-08T14:00:00Z</game_end_date>
+    <game_start_date>2021-07-23T11:00:00Z</game_start_date>
+    <game_location>Japan</game_location>
+    <game_name>Tokyo 2020</game_name>
+    <game_season>Summer</game_season>
+    <game_year>2020</game_year>
+  </row>
+  <row>
+    <index>2</index>
+    <game_slug>pyeongchang-2018</game_slug>
+    <game_end_date>2018-02-25T08:00:00Z</game_end_date>
+    <game_start_date>2018-02-08T23:00:00Z</game_start_date>
+    <game_location>Republic of Korea</game_location>
+    <game_name>PyeongChang 2018</game_name>
+    <game_season>Winter</game_season>
+    <game_year>2018</game_year>
+  </row>
+  <row>
+    <index>3</index>
+    <game_slug>rio-2016</game_slug>
+    <game_end_date>2016-08-21T21:00:00Z</game_end_date>
+    <game_start_date>2016-08-05T12:00:00Z</game_start_date>
+    <game_location>Brazil</game_location>
+    <game_name>Rio 2016</game_name>
+    <game_season>Summer</game_season>
+    <game_year>2016</game_year>
+  </row>
+  <row>
+    <index>4</index>
+    <game_slug>sochi-2014</game_slug>
+    <game_end_date>2014-02-23T16:00:00Z</game_end_date>
+    <game_start_date>2014-02-07T04:00:00Z</game_start_date>
+    <game_location>Russian Federation</game_location>
+    <game_name>Sochi 2014</game_name>
+    <game_season>Winter</game_season>
+    <game_year>2014</game_year>
+  </row>
+  <row>
+    <index>5</index>
+    <game_slug>london-2012</game_slug>
+    <game_end_date>2012-08-12T19:00:00Z</game_end_date>
+    <game_start_date>2012-07-27T07:00:00Z</game_start_date>
+    <game_location>Great Britain</game_location>
+    <game_name>London 2012</game_name>
+    <game_season>Summer</game_season>
+    <game_year>2012</game_year>
+  </row>
+  <row>
+    <index>6</index>
+    <game_slug>vancouver-2010</game_slug>
+    <game_end_date>2010-02-28T04:00:00Z</game_end_date>
+    <game_start_date>2010-02-12T16:00:00Z</game_start_date>
+    <game_location>Canada</game_location>
+    <game_name>Vancouver 2010</game_name>
+    <game_season>Winter</game_season>
+    <game_year>2010</game_year>
+  </row>
+  <row>
+    <index>7</index>
+    <game_slug>beijing-2008</game_slug>
+    <game_end_date>2008-08-24T12:00:00Z</game_end_date>
+    <game_start_date>2008-08-08T00:00:00Z</game_start_date>
+    <game_location>China</game_location>
+    <game_name>Beijing 2008</game_name>
+    <game_season>Summer</game_season>
+    <game_year>2008</game_year>
+  </row>
+  <row>
+    <index>8</index>
+    <game_slug>turin-2006</game_slug>
+    <game_end_date>2006-02-26T19:00:00Z</game_end_date>
+    <game_start_date>2006-02-10T07:00:00Z</game_start_date>
+    <game_location>Italy</game_location>
+    <game_name>Turin 2006</game_name>
+    <game_season>Winter</game_season>
+    <game_year>2006</game_year>
+  </row>
+  <row>
+    <index>9</index>
+    <game_slug>athens-2004</game_slug>
+    <game_end_date>2004-08-29T18:00:00Z</game_end_date>
+    <game_start_date>2004-08-13T06:00:00Z</game_start_date>
+    <game_location>Greece</game_location>
+    <game_name>Athens 2004</game_name>
+    <game_season>Summer</game_season>
+    <game_year>2004</game_year>
+  </row>
+  <row>
+    <index>10</index>
+    <game_slug>salt-lake-city-2002</game_slug>
+    <game_end_date>2002-02-24T08:00:00Z</game_end_date>
+    <game_start_date>2002-02-08T15:00:00Z</game_start_date>
+    <game_location>United States</game_location>
+    <game_name>Salt Lake City 2002</game_name>
+    <game_season>Winter</game_season>
+    <game_year>2002</game_year>
+  </row>
+  <row>
+    <index>11</index>
+    <game_slug>sydney-2000</game_slug>
+    <game_end_date>2000-10-01T09:00:00Z</game_end_date>
+    <game_start_date>2000-09-15T01:00:00Z</game_start_date>
+    <game_location>Australia</game_location>
+    <game_name>Sydney 2000</game_name>
+    <game_season>Summer</game_season>
+    <game_year>2000</game_year>
+  </row>
+  <row>
+    <index>12</index>
+    <game_slug>nagano-1998</game_slug>
+    <game_end_date>1998-02-22T11:00:00Z</game_end_date>
+    <game_start_date>1998-02-06T23:00:00Z</game_start_date>
+    <game_location>Japan</game_location>
+    <game_name>Nagano 1998</game_name>
+    <game_season>Winter</game_season>
+    <game_year>1998</game_year>
+  </row>
+  <row>
+    <index>13</index>
+    <game_slug>atlanta-1996</game_slug>
+    <game_end_date>1996-08-05T21:00:00Z</game_end_date>
+    <game_start_date>1996-07-19T12:00:00Z</game_start_date>
+    <game_location>United States</game_location>
+    <game_name>Atlanta 1996</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1996</game_year>
+  </row>
+  <row>
+    <index>14</index>
+    <game_slug>lillehammer-1994</game_slug>
+    <game_end_date>1994-02-27T19:00:00Z</game_end_date>
+    <game_start_date>1994-02-12T07:00:00Z</game_start_date>
+    <game_location>Norway</game_location>
+    <game_name>Lillehammer 1994</game_name>
+    <game_season>Winter</game_season>
+    <game_year>1994</game_year>
+  </row>
+  <row>
+    <index>15</index>
+    <game_slug>barcelona-1992</game_slug>
+    <game_end_date>1992-08-09T18:00:00Z</game_end_date>
+    <game_start_date>1992-07-25T06:00:00Z</game_start_date>
+    <game_location>Spain</game_location>
+    <game_name>Barcelona 1992</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1992</game_year>
+  </row>
+  <row>
+    <index>16</index>
+    <game_slug>albertville-1992</game_slug>
+    <game_end_date>1992-02-23T19:00:00Z</game_end_date>
+    <game_start_date>1992-02-08T07:00:00Z</game_start_date>
+    <game_location>France</game_location>
+    <game_name>Albertville 1992</game_name>
+    <game_season>Winter</game_season>
+    <game_year>1992</game_year>
+  </row>
+  <row>
+    <index>17</index>
+    <game_slug>seoul-1988</game_slug>
+    <game_end_date>1988-10-02T10:00:00Z</game_end_date>
+    <game_start_date>1988-09-16T22:00:00Z</game_start_date>
+    <game_location>Republic of Korea</game_location>
+    <game_name>Seoul 1988</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1988</game_year>
+  </row>
+  <row>
+    <index>18</index>
+    <game_slug>calgary-1988</game_slug>
+    <game_end_date>1988-02-28T03:00:00Z</game_end_date>
+    <game_start_date>1988-02-13T15:00:00Z</game_start_date>
+    <game_location>Canada</game_location>
+    <game_name>Calgary 1988</game_name>
+    <game_season>Winter</game_season>
+    <game_year>1988</game_year>
+  </row>
+  <row>
+    <index>19</index>
+    <game_slug>los-angeles-1984</game_slug>
+    <game_end_date>1984-08-12T19:00:00Z</game_end_date>
+    <game_start_date>1984-07-28T15:00:00Z</game_start_date>
+    <game_location>United States</game_location>
+    <game_name>Los Angeles 1984</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1984</game_year>
+  </row>
+  <row>
+    <index>20</index>
+    <game_slug>sarajevo-1984</game_slug>
+    <game_end_date>1984-02-19T19:00:00Z</game_end_date>
+    <game_start_date>1984-02-08T07:00:00Z</game_start_date>
+    <game_location>Yugoslavia</game_location>
+    <game_name>Sarajevo 1984</game_name>
+    <game_season>Winter</game_season>
+    <game_year>1984</game_year>
+  </row>
+  <row>
+    <index>21</index>
+    <game_slug>moscow-1980</game_slug>
+    <game_end_date>1980-08-03T18:00:00Z</game_end_date>
+    <game_start_date>1980-07-19T05:00:00Z</game_start_date>
+    <game_location>USSR</game_location>
+    <game_name>Moscow 1980</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1980</game_year>
+  </row>
+  <row>
+    <index>22</index>
+    <game_slug>lake-placid-1980</game_slug>
+    <game_end_date>1980-02-24T01:00:00Z</game_end_date>
+    <game_start_date>1980-02-13T13:00:00Z</game_start_date>
+    <game_location>United States</game_location>
+    <game_name>Lake Placid 1980</game_name>
+    <game_season>Winter</game_season>
+    <game_year>1980</game_year>
+  </row>
+  <row>
+    <index>23</index>
+    <game_slug>montreal-1976</game_slug>
+    <game_end_date>1976-07-31T22:00:00Z</game_end_date>
+    <game_start_date>1976-07-17T12:00:00Z</game_start_date>
+    <game_location>Canada</game_location>
+    <game_name>Montreal 1976</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1976</game_year>
+  </row>
+  <row>
+    <index>24</index>
+    <game_slug>innsbruck-1976</game_slug>
+    <game_end_date>1976-02-15T19:00:00Z</game_end_date>
+    <game_start_date>1976-02-04T07:00:00Z</game_start_date>
+    <game_location>Austria</game_location>
+    <game_name>Innsbruck 1976</game_name>
+    <game_season>Winter</game_season>
+    <game_year>1976</game_year>
+  </row>
+  <row>
+    <index>25</index>
+    <game_slug>munich-1972</game_slug>
+    <game_end_date>1972-09-11T19:00:00Z</game_end_date>
+    <game_start_date>1972-08-26T07:00:00Z</game_start_date>
+    <game_location>Federal Republic of Germany</game_location>
+    <game_name>Munich 1972</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1972</game_year>
+  </row>
+  <row>
+    <index>26</index>
+    <game_slug>sapporo-1972</game_slug>
+    <game_end_date>1972-02-13T11:00:00Z</game_end_date>
+    <game_start_date>1972-02-02T23:00:00Z</game_start_date>
+    <game_location>Japan</game_location>
+    <game_name>Sapporo 1972</game_name>
+    <game_season>Winter</game_season>
+    <game_year>1972</game_year>
+  </row>
+  <row>
+    <index>27</index>
+    <game_slug>mexico-city-1968</game_slug>
+    <game_end_date>1968-10-28T04:00:00Z</game_end_date>
+    <game_start_date>1968-10-12T16:00:00Z</game_start_date>
+    <game_location>Mexico</game_location>
+    <game_name>Mexico City 1968</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1968</game_year>
+  </row>
+  <row>
+    <index>28</index>
+    <game_slug>grenoble-1968</game_slug>
+    <game_end_date>1968-02-18T19:00:00Z</game_end_date>
+    <game_start_date>1968-02-06T07:00:00Z</game_start_date>
+    <game_location>France</game_location>
+    <game_name>Grenoble 1968</game_name>
+    <game_season>Winter</game_season>
+    <game_year>1968</game_year>
+  </row>
+  <row>
+    <index>29</index>
+    <game_slug>tokyo-1964</game_slug>
+    <game_end_date>1964-10-24T11:00:00Z</game_end_date>
+    <game_start_date>1964-10-09T23:00:00Z</game_start_date>
+    <game_location>Japan</game_location>
+    <game_name>Tokyo 1964</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1964</game_year>
+  </row>
+  <row>
+    <index>30</index>
+    <game_slug>innsbruck-1964</game_slug>
+    <game_end_date>1964-02-09T19:00:00Z</game_end_date>
+    <game_start_date>1964-01-29T07:00:00Z</game_start_date>
+    <game_location>Austria</game_location>
+    <game_name>Innsbruck 1964</game_name>
+    <game_season>Winter</game_season>
+    <game_year>1964</game_year>
+  </row>
+  <row>
+    <index>31</index>
+    <game_slug>rome-1960</game_slug>
+    <game_end_date>1960-09-11T19:00:00Z</game_end_date>
+    <game_start_date>1960-08-25T07:00:00Z</game_start_date>
+    <game_location>Italy</game_location>
+    <game_name>Rome 1960</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1960</game_year>
+  </row>
+  <row>
+    <index>32</index>
+    <game_slug>squaw-valley-1960</game_slug>
+    <game_end_date>1960-02-28T04:00:00Z</game_end_date>
+    <game_start_date>1960-02-18T16:00:00Z</game_start_date>
+    <game_location>United States</game_location>
+    <game_name>Squaw Valley 1960</game_name>
+    <game_season>Winter</game_season>
+    <game_year>1960</game_year>
+  </row>
+  <row>
+    <index>33</index>
+    <game_slug>melbourne-1956</game_slug>
+    <game_end_date>1956-12-08T10:00:00Z</game_end_date>
+    <game_start_date>1956-11-21T22:00:00Z</game_start_date>
+    <game_location>Australia, Sweden</game_location>
+    <game_name>Melbourne 1956</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1956</game_year>
+  </row>
+  <row>
+    <index>34</index>
+    <game_slug>cortina-d-ampezzo-1956</game_slug>
+    <game_end_date>1956-02-05T19:00:00Z</game_end_date>
+    <game_start_date>1956-01-26T07:00:00Z</game_start_date>
+    <game_location>Italy</game_location>
+    <game_name>Cortina d'Ampezzo 1956</game_name>
+    <game_season>Winter</game_season>
+    <game_year>1956</game_year>
+  </row>
+  <row>
+    <index>35</index>
+    <game_slug>helsinki-1952</game_slug>
+    <game_end_date>1952-08-03T07:00:00Z</game_end_date>
+    <game_start_date>1952-07-19T07:00:00Z</game_start_date>
+    <game_location>Finland</game_location>
+    <game_name>Helsinki 1952</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1952</game_year>
+  </row>
+  <row>
+    <index>36</index>
+    <game_slug>oslo-1952</game_slug>
+    <game_end_date>1952-02-25T19:00:00Z</game_end_date>
+    <game_start_date>1952-02-14T07:00:00Z</game_start_date>
+    <game_location>Norway</game_location>
+    <game_name>Oslo 1952</game_name>
+    <game_season>Winter</game_season>
+    <game_year>1952</game_year>
+  </row>
+  <row>
+    <index>37</index>
+    <game_slug>london-1948</game_slug>
+    <game_end_date>1948-08-14T19:00:00Z</game_end_date>
+    <game_start_date>1948-07-29T07:00:00Z</game_start_date>
+    <game_location>Great Britain</game_location>
+    <game_name>London 1948</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1948</game_year>
+  </row>
+  <row>
+    <index>38</index>
+    <game_slug>st-moritz-1948</game_slug>
+    <game_end_date>1948-02-08T19:00:00Z</game_end_date>
+    <game_start_date>1948-01-30T07:00:00Z</game_start_date>
+    <game_location>Switzerland</game_location>
+    <game_name>St. Moritz 1948</game_name>
+    <game_season>Winter</game_season>
+    <game_year>1948</game_year>
+  </row>
+  <row>
+    <index>39</index>
+    <game_slug>berlin-1936</game_slug>
+    <game_end_date>1936-08-16T19:00:00Z</game_end_date>
+    <game_start_date>1936-08-01T07:00:00Z</game_start_date>
+    <game_location>Germany</game_location>
+    <game_name>Berlin 1936</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1936</game_year>
+  </row>
+  <row>
+    <index>40</index>
+    <game_slug>garmisch-partenkirchen-1936</game_slug>
+    <game_end_date>1936-02-16T20:00:00Z</game_end_date>
+    <game_start_date>1936-02-06T08:00:00Z</game_start_date>
+    <game_location>Germany</game_location>
+    <game_name>Garmisch-Partenkirchen 1936</game_name>
+    <game_season>Winter</game_season>
+    <game_year>1936</game_year>
+  </row>
+  <row>
+    <index>41</index>
+    <game_slug>los-angeles-1932</game_slug>
+    <game_end_date>1932-08-14T19:00:00Z</game_end_date>
+    <game_start_date>1932-07-30T16:00:00Z</game_start_date>
+    <game_location>United States</game_location>
+    <game_name>Los Angeles 1932</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1932</game_year>
+  </row>
+  <row>
+    <index>42</index>
+    <game_slug>lake-placid-1932</game_slug>
+    <game_end_date>1932-02-15T18:00:00Z</game_end_date>
+    <game_start_date>1932-02-04T13:00:00Z</game_start_date>
+    <game_location>United States</game_location>
+    <game_name>Lake Placid 1932</game_name>
+    <game_season>Winter</game_season>
+    <game_year>1932</game_year>
+  </row>
+  <row>
+    <index>43</index>
+    <game_slug>amsterdam-1928</game_slug>
+    <game_end_date>1928-08-12T19:00:00Z</game_end_date>
+    <game_start_date>1928-05-17T07:00:00Z</game_start_date>
+    <game_location>Netherlands</game_location>
+    <game_name>Amsterdam 1928</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1928</game_year>
+  </row>
+  <row>
+    <index>44</index>
+    <game_slug>st-moritz-1928</game_slug>
+    <game_end_date>1928-02-19T08:00:00Z</game_end_date>
+    <game_start_date>1928-02-11T08:00:00Z</game_start_date>
+    <game_location>Switzerland</game_location>
+    <game_name>St. Moritz 1928</game_name>
+    <game_season>Winter</game_season>
+    <game_year>1928</game_year>
+  </row>
+  <row>
+    <index>45</index>
+    <game_slug>paris-1924</game_slug>
+    <game_end_date>1924-07-27T19:00:00Z</game_end_date>
+    <game_start_date>1924-05-04T07:00:00Z</game_start_date>
+    <game_location>France</game_location>
+    <game_name>Paris 1924</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1924</game_year>
+  </row>
+  <row>
+    <index>46</index>
+    <game_slug>chamonix-1924</game_slug>
+    <game_end_date>1924-02-05T20:00:00Z</game_end_date>
+    <game_start_date>1924-01-25T08:00:00Z</game_start_date>
+    <game_location>France</game_location>
+    <game_name>Chamonix 1924</game_name>
+    <game_season>Winter</game_season>
+    <game_year>1924</game_year>
+  </row>
+  <row>
+    <index>47</index>
+    <game_slug>antwerp-1920</game_slug>
+    <game_end_date>1920-09-12T19:00:00Z</game_end_date>
+    <game_start_date>1920-04-20T07:00:00Z</game_start_date>
+    <game_location>Belgium</game_location>
+    <game_name>Antwerp 1920</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1920</game_year>
+  </row>
+  <row>
+    <index>48</index>
+    <game_slug>stockholm-1912</game_slug>
+    <game_end_date>1912-07-27T20:00:00Z</game_end_date>
+    <game_start_date>1912-05-05T08:00:00Z</game_start_date>
+    <game_location>Sweden</game_location>
+    <game_name>Stockholm 1912</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1912</game_year>
+  </row>
+  <row>
+    <index>49</index>
+    <game_slug>london-1908</game_slug>
+    <game_end_date>1908-10-31T20:09:00Z</game_end_date>
+    <game_start_date>1908-04-27T08:00:00Z</game_start_date>
+    <game_location>Great Britain</game_location>
+    <game_name>London 1908</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1908</game_year>
+  </row>
+  <row>
+    <index>50</index>
+    <game_slug>st-louis-1904</game_slug>
+    <game_end_date>1904-11-24T02:00:00Z</game_end_date>
+    <game_start_date>1904-07-01T14:00:00Z</game_start_date>
+    <game_location>United States</game_location>
+    <game_name>St. Louis 1904</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1904</game_year>
+  </row>
+  <row>
+    <index>51</index>
+    <game_slug>paris-1900</game_slug>
+    <game_end_date>1900-10-28T19:50:39Z</game_end_date>
+    <game_start_date>1900-05-14T08:50:39Z</game_start_date>
+    <game_location>France</game_location>
+    <game_name>Paris 1900</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1900</game_year>
+  </row>
+  <row>
+    <index>52</index>
+    <game_slug>athens-1896</game_slug>
+    <game_end_date>1896-04-15T11:39:39Z</game_end_date>
+    <game_start_date>1896-04-06T11:38:39Z</game_start_date>
+    <game_location>Greece</game_location>
+    <game_name>Athens 1896</game_name>
+    <game_season>Summer</game_season>
+    <game_year>1896</game_year>
+  </row>
+</data>
