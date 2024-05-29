@@ -22,8 +22,8 @@ app.use("/athlete", athleteRouter);
 app.use("/hosts", hostRouter);
 app.use("/medals", medalsRouter);
 
-app.listen(env.SERVER_PORT, env.SERVER_HOST, () => {
-  console.log(`Server is running on http://${env.SERVER_HOST}:${env.SERVER_PORT}`);
+app.listen(env.PORT, () => {
+  console.log(`Server is running on port ${env.PORT}`);
 });
 
 app.on("error", (error) => {

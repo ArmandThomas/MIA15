@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc && tsc-alias",
-    "start": "node --env-file=.env dist/app.js",
+    "start": "node --env-file=.env dist/src/app.js",
     "prod": "node dist/src/app.js",
     "dev": "tsx watch --env-file=.env src/app.ts",
     "drizzle-kit": "pnpx tsx node_modules/drizzle-kit/bin.cjs",
