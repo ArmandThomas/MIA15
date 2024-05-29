@@ -78,7 +78,9 @@ const buttonVariants = tv({
         // text color
         "text-gray-900 dark:text-gray-50",
         // background color
-        "bg-transparent",
+
+        "bg-transparent shadow-none",
+
         // hover color
         "hover:bg-gray-50 dark:hover:bg-gray-900/60",
         // disabled
@@ -87,7 +89,9 @@ const buttonVariants = tv({
       ],
       link: [
         // base
-        "underline-offset-4",
+
+        "underline-offset-4 shadow-none",
+
         // border
         "border-transparent",
         // text color

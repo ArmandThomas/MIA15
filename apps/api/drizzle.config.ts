@@ -2,7 +2,7 @@ import { defineConfig } from "drizzle-kit";
 import { env } from "@/env.js";
 
 export default defineConfig({
-  schema: "src/database/schema/*",
+  schema: "src/database/schema/index.ts",
   out: "src/database/migrations",
   dialect: "mysql",
   dbCredentials: {

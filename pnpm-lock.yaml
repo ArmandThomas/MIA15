@@ -7,6 +7,13 @@ settings:
 importers:
 
   .:
+    dependencies:
+      drizzle-orm:
+        specifier: ^0.30.10
+        version: 0.30.10(@types/pg@8.11.6)(@types/react@18.3.3)(mysql2@3.9.8)(react@18.3.1)
+      mysql2:
+        specifier: ^3.9.8
+        version: 3.9.8
     devDependencies:
       '@biomejs/biome':
         specifier: ^1.7.3
@@ -14,6 +21,9 @@ importers:
 
   apps/api:
     dependencies:
+      '@faker-js/faker':
+        specifier: ^8.4.1
+        version: 8.4.1
       '@t3-oss/env-core':
         specifier: ^0.10.1
         version: 0.10.1(typescript@5.4.5)(zod@3.23.8)
@@ -78,15 +88,10 @@ importers:
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
-      classnames:
-        specifier: ^2.5.1
-        version: 2.5.1
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
-      date-fns:
-        specifier: ^3.6.0
-        version: 3.6.0
+
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -1223,10 +1228,6 @@ packages:
 
   class-variance-authority@0.7.0:
     resolution: {integrity: sha512-jFI8IQw4hczaL4ALINxqLEXQbWcNjoSkloa4IaufXCJr6QawJyw7tuRysRsrE8w2p/4gGaxKIt/hX3qz/IbD1A==}
-
-  classnames@2.5.1:
-    resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
-
   cli-color@2.0.4:
     resolution: {integrity: sha512-zlnpg0jNcibNrO7GG9IeHH7maWFeCz+Ja1wx/7tZNU5ASSSSZ+/qZciM0/LHCYxSdqv5h2sdbQ/PXYdOuetXvA==}
     engines: {node: '>=0.10'}
@@ -2664,7 +2665,11 @@ snapshots:
 
   '@jridgewell/set-array@1.2.1': {}
 
+
   '@jridgewell/sourcemap-codec@1.4.15': {}
+
+  '@eslint/js@8.57.0': {}
+
 
   '@jridgewell/trace-mapping@0.3.25':
     dependencies:
@@ -3218,8 +3223,6 @@ snapshots:
   class-variance-authority@0.7.0:
     dependencies:
       clsx: 2.0.0
-
-  classnames@2.5.1: {}
 
   cli-color@2.0.4:
     dependencies:

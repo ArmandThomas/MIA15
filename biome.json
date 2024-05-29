@@ -18,5 +18,32 @@
         "noArrayIndexKey": "off"
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "include": ["apps/web/**"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noArrayIndexKey": "off"
+          }
+        }
+      }
+    },
+    {
+      "include": ["apps/web/src/components/charts/**"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noArrayIndexKey": "off",
+            "noExplicitAny": "off"
+          },
+          "a11y": {
+            "noNoninteractiveTabindex": "off",
+            "useKeyWithClickEvents": "off"
+          }
+        }
+      }
+    }
+  ]
 }

@@ -2,6 +2,7 @@ import type { Logger } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import mysql from "mysql2/promise.js";
 import { env } from "@/env.js";
+import * as schema from "./schema/index.js";
 
 class QueryLogger implements Logger {
   logQuery(query: string, params: unknown[]): void {
@@ -20,4 +21,4 @@ const pool = mysql.createPool({
   database: env.DATABASE_NAME,
 });
 
-export const db = drizzle(pool, { logger: new QueryLogger() });
+export const db = drizzle(pool, { schema, mode: "default", logger: new QueryLogger() });

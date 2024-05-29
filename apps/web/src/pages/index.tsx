@@ -3,8 +3,12 @@ import { Card } from "@/components/ui/Card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs";
 import { LineChartAxisLabelsExample } from "@/components/ExampleLineChart";
 import { TableExample } from "@/components/ExampleTable";
+
 import Countdown from "@/components/Countdown";
 import { Callout } from '@/components/Callout';
+
+import { BarChartAxisLabelsExample } from "@/components/ExampleBarChart";
+
 
 export default function Home() {
   return (
@@ -23,7 +27,9 @@ export default function Home() {
           <TabsList>
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="analytics">Analytics</TabsTrigger>
-            <TabsTrigger value="reports" disabled>
+
+            <TabsTrigger value="reports">
+
               Reports
             </TabsTrigger>
             <TabsTrigger value="notifications" disabled>
@@ -42,6 +48,13 @@ export default function Home() {
               <TableExample />
             </Card>
           </TabsContent>
+
+          <TabsContent value="reports" className="space-y-4">
+            <Card className="p-4">
+              <BarChartAxisLabelsExample />
+            </Card>
+          </TabsContent>
+
         </Tabs>
       </div>
     </>
