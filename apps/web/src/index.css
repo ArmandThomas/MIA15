@@ -84,3 +84,29 @@
     @apply bg-background text-foreground;
   }
 }
+
+.countdown {
+  font-size: 1.5rem;
+  text-align: center;
+  background: #ffcc80;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.countdown-timer {
+  font-size: 2rem;
+  font-weight: bold;  
+  margin-top:2%;
+}
+
+.countdown-labels {
+  font-size: 1rem; 
+  margin-left:75%;
+}
+
+.countdown-labels span {
+  /* flex: 1; */
+  /* text-align: center; */
+  margin:6%;
+}
