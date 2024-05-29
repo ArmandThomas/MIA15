@@ -9,8 +9,7 @@ const Type = {
 
 export const env = createEnv({
   server: {
-    SERVER_HOST: Type.STRING.default("localhost"),
-    SERVER_PORT: Type.NUMBER.int().positive().default(3000),
+    PORT: Type.NUMBER.int().positive().default(3000),
     DATABASE_HOST: Type.STRING.default("localhost"),
     DATABASE_PORT: Type.NUMBER.int().positive().default(3306),
     DATABASE_NAME: Type.STRING,
