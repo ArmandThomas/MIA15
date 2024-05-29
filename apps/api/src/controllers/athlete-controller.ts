@@ -1,4 +1,4 @@
-import { AthleteService } from "@/services/Athlete-service.js";
+import { AthleteService } from "@/services/athlete-service.js";
 import type { RequestHandler } from "express";
 import { z } from "zod";
 
@@ -30,7 +30,7 @@ const findAllAthletes: RequestHandler = async (req, res, next) => {
 };
 
 const findAthleteByCountry: RequestHandler = async (req, res, next) => {
-  const idCountry = z.coerce.string().safeParse(req.params.idCountry);
+  const idCountry = z.coerce.number().safeParse(req.params.idCountry);
 
   if (!idCountry.success) {
     res.status(400).json({ error: "Invalid request body" });

@@ -14,9 +14,9 @@ async function findAll(): Promise<Athlete[]> {
   return allAthletes;
 }
 
-async function findByCountry(country: string): Promise<Athlete[]> {
+async function findByCountry(country: number): Promise<Athlete[]> {
   const athletesByCountry = await db.query.athletes.findMany({
-    where: (athletes, { eq }) => eq(athletes.idCountry, parseInt(country)),
+    where: (athletes, { eq }) => eq(athletes.idCountry, country),
   });
 
   return athletesByCountry;
