@@ -13,8 +13,8 @@ export const disciplinesRelations = relations(disciplines, ({ many }) => ({
   host_disciplines: many(host_disciplines),
 }));
 
-export type Country = typeof disciplines.$inferSelect;
-export type NewCountry = typeof disciplines.$inferInsert;
+export type Discipline = typeof disciplines.$inferSelect;
+export type NewDiscipline = typeof disciplines.$inferInsert;
 
 // Schema for inserting a user - can be used to validate API requests
 export const insertDisciplineSchema = createInsertSchema(disciplines);

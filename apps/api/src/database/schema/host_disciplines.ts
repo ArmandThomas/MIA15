@@ -16,11 +16,9 @@ export const host_disciplines = mysqlTable(
       .notNull()
       .references(() => hosts.id),
   },
-  (table) => {
-    return {
-      pk: primaryKey({ columns: [table.idDiscipline, table.idHost] }),
-    };
-  },
+  (table) => ({
+    pk: primaryKey({ columns: [table.idDiscipline, table.idHost] }),
+  }),
 );
 
 export const host_disciplinesRelations = relations(host_disciplines, ({ one, many }) => ({
