@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    tags:
-      - 'inte/**'
   workflow_dispatch:
 
 jobs:
