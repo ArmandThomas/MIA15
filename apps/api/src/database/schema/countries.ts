@@ -2,6 +2,7 @@ import { mysqlTable, varchar, char, serial } from "drizzle-orm/mysql-core";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 import { relations } from "drizzle-orm";
 import { athletes } from "./athletes.js";
+import { hosts } from "./hosts.js";
 
 export const countries = mysqlTable("countries", {
   id: serial("id").primaryKey(),
@@ -12,6 +13,7 @@ export const countries = mysqlTable("countries", {
 
 export const countriesRelations = relations(countries, ({ many }) => ({
   athletes: many(athletes),
+  hosts: many(hosts),
 }));
 
 export type Country = typeof countries.$inferSelect;

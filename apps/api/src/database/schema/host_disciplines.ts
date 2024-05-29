@@ -1,28 +1,32 @@
-import { mysqlTable,  bigint, primaryKey } from "drizzle-orm/mysql-core";
+import { mysqlTable, bigint, primaryKey } from "drizzle-orm/mysql-core";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 import { relations } from "drizzle-orm";
 import { disciplines } from "./disciplines.js";
 import { hosts } from "./hosts.js";
 import { events } from "./events.js";
 
-export const host_disciplines = mysqlTable("host_disciplines", {
+export const host_disciplines = mysqlTable(
+  "host_disciplines",
+  {
     idDiscipline: bigint("id_discipline", { mode: "number", unsigned: true })
-        .notNull()
-        .references(() => disciplines.id),
+      .notNull()
+      .references(() => disciplines.id),
 
     idHost: bigint("id_host", { mode: "number", unsigned: true })
-        .notNull()
-        .references(() => hosts.id)
-}, (table) => {
+      .notNull()
+      .references(() => hosts.id),
+  },
+  (table) => {
     return {
-        pk: primaryKey({ columns: [table.idDiscipline, table.idHost] })
+      pk: primaryKey({ columns: [table.idDiscipline, table.idHost] }),
     };
-});
+  },
+);
 
-export const host_disciplinesRelations = relations(host_disciplines, ({ one , many}) => ({
+export const host_disciplinesRelations = relations(host_disciplines, ({ one, many }) => ({
   discipline: one(disciplines),
-  host : one (hosts),
-  event : many(events)
+  host: one(hosts),
+  event: many(events),
 }));
 
 export type host_discipline = typeof host_disciplines.$inferSelect;

@@ -15,18 +15,17 @@ export const events = mysqlTable("events", {
     .notNull()
     .references(() => hosts.id),
 
-    name: varchar("name", { length: 256 }).notNull(),
-    
-    gender: mysqlEnum("gender", ["Men", "Women", "Mixed"]).notNull()
+  name: varchar("name", { length: 256 }).notNull(),
 
+  gender: mysqlEnum("gender", ["Men", "Women", "Mixed"]).notNull(),
+});
 
-
-})
-  
-
-export const eventsRelations = relations(events, ({ one , many }) => ({
+export const eventsRelations = relations(events, ({ one, many }) => ({
   result: many(results),
-  host_disciplines:one(host_disciplines)
+  host_disciplines: one(host_disciplines, {
+    fields: [events.idDiscipline, events.idHost],
+    references: [host_disciplines.idDiscipline, host_disciplines.idHost],
+  }),
 }));
 
 export type Event = typeof events.$inferSelect;

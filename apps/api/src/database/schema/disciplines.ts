@@ -7,7 +7,6 @@ import { host_disciplines } from "./host_disciplines.js";
 export const disciplines = mysqlTable("disciplines", {
   id: serial("id").primaryKey(),
   name: varchar("name", { length: 256 }).unique().notNull(),
-  
 });
 
 export const disciplinesRelations = relations(disciplines, ({ many }) => ({

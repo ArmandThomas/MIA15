@@ -8,7 +8,9 @@ import { athlete_results } from "./athlete_results.js";
 export const athletes = mysqlTable("athletes", {
   id: serial("id").primaryKey(),
   fullName: varchar("full_name", { length: 256 }).notNull(),
-  firstEdition: bigint("first_edition", { mode: "number", unsigned: true }).notNull(),
+  firstEdition: bigint("first_edition", { mode: "number", unsigned: true })
+    .notNull()
+    .references(() => hosts.id),
   birthYear: smallint("birth_year").notNull(),
   bio: text("bio"),
   idCountry: bigint("id_country", { mode: "number", unsigned: true })
@@ -16,12 +18,10 @@ export const athletes = mysqlTable("athletes", {
     .references(() => countries.id),
 });
 
-export const athletesRelations = relations(athletes, ({ one,many }) => ({
+export const athletesRelations = relations(athletes, ({ one, many }) => ({
   country: one(countries),
-  host: one(hosts),
+  firstHostEdition: one(hosts),
   athlete_result: many(athlete_results),
-
-
 }));
 
 export type Athlete = typeof athletes.$inferSelect;

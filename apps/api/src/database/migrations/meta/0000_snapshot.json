@@ -48,35 +48,25 @@
       "compositePrimaryKeys": {
         "countries_id": {
           "name": "countries_id",
-          "columns": [
-            "id"
-          ]
+          "columns": ["id"]
         }
       },
       "uniqueConstraints": {
         "countries_name_unique": {
           "name": "countries_name_unique",
-          "columns": [
-            "name"
-          ]
+          "columns": ["name"]
         },
         "countries_code_unique": {
           "name": "countries_code_unique",
-          "columns": [
-            "code"
-          ]
+          "columns": ["code"]
         },
         "countries_code_iso_unique": {
           "name": "countries_code_iso_unique",
-          "columns": [
-            "code_iso"
-          ]
+          "columns": ["code_iso"]
         },
         "countries_phone_code_unique": {
           "name": "countries_phone_code_unique",
-          "columns": [
-            "phone_code"
-          ]
+          "columns": ["phone_code"]
         }
       }
     }
