@@ -1,29 +1,66 @@
+import { AthleteService } from "@/services/Athlete-service.js";
 import type { RequestHandler } from "express";
+import { z } from "zod";
+
 
 // TODO: Remove this controller (example only)
 
-const ListeAthlete: RequestHandler = (req, res): void => {
-    const { page, limit, filter } = req.query;
-    res.json({ message: 'Liste des athlètes avec pagination et filtres', page, limit, filter });
-}
 
-const AthleteParID: RequestHandler = (req, res): void => {
-
-    const { id } = req.params;
-    res.json({ message: `Données de l'athlète avec ID ${id}` });
+const findAthlete: RequestHandler = async (req, res, next) => {
+    const athleteId = z.coerce.number().safeParse(req.params.id);
   
-};
-
-const TopAthlete: RequestHandler = (req, res): void => {
-    res.json({ message: 'Top athlètes' });
-};
-
-const AthleteParPays: RequestHandler = (req, res): void => {
-
-    const pays = req.params.pays;
-    res.json({ message: `Données de l'athlète du  ${pays}` });
+    if (!athleteId.success) {
+      res.status(400).json({ error: "Invalid request body" });
+      return next();
+    }
   
+    const athlete = await AthleteService.findOne(athleteId.data);
+  
+    if (!athlete) {
+      res.status(404).json({ error: "athlete not found" });
+      return next();
+    }
+  
+    res.json(athlete);
+    next();
+  };
+
+
+
+const findAllAthletes: RequestHandler = async (req, res, next) => {
+    const athletes = await AthleteService.findAll();
+    res.json(athletes);
+    next();
+};
+
+const findAthleteByCountry: RequestHandler = async (req, res, next) => {
+    const idCountry = z.coerce.string().safeParse(req.params.idCountry);
+
+    if (!idCountry.success) {
+        res.status(400).json({ error: "Invalid request body" });
+        return next();
+    }
+
+    const athletes = await AthleteService.findByCountry(idCountry.data);
+    
+    res.json(athletes);
+    next();
 };
 
 
-export default { ListeAthlete, AthleteParID , TopAthlete,AthleteParPays };
+export const athleteController = {
+    findAthlete,
+    findAllAthletes,
+    findAthleteByCountry,
+};
+
+
+  
+
+
+
+
+
+
+
+
