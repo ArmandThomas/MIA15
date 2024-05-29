@@ -18,6 +18,6 @@ export type Country = typeof disciplines.$inferSelect;
 export type NewCountry = typeof disciplines.$inferInsert;
 
 // Schema for inserting a user - can be used to validate API requests
-export const insertCountrySchema = createInsertSchema(disciplines);
+export const insertDisciplineSchema = createInsertSchema(disciplines);
 // Schema for selecting a user - can be used to validate API responses
-export const selectCountrySchema = createSelectSchema(disciplines);
+export const selectDisciplineSchema = createSelectSchema(disciplines);

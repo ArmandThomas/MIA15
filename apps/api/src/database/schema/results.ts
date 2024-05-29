@@ -10,7 +10,9 @@ import { events } from "./events.js";
         value: varchar("value", { length: 256 }).notNull(),
         value_type: mysqlEnum("value_type", ["Type1", "Type2"]).notNull(),
         rank: smallint("rank").notNull(),
-        id_event: serial("id_event").notNull()
+        idEvent: bigint("id_Event", { mode: "number", unsigned: true })
+    .notNull()
+    .references(() => events.id),
     });
 
 
@@ -25,6 +27,6 @@ export type Result = typeof results.$inferSelect;
 export type NewResult = typeof results.$inferInsert;
 
 // Schema for inserting a user - can be used to validate API requests
-export const insertAthleteSchema = createInsertSchema(results);
+export const insertResultSchema = createInsertSchema(results);
 // Schema for selecting a user - can be used to validate API responses
-export const selectAthleteSchema = createSelectSchema(results);
+export const selectResultSchema = createSelectSchema(results);

@@ -14,7 +14,7 @@ export const hosts = mysqlTable("hosts", {
     name: varchar("name", { length: 256 }).notNull(),
     season: mysqlEnum("season", ["Summer", "Winter"]).notNull(),
     year: smallint("year").notNull(),
-    location: serial("location").notNull()
+    location: varchar("location", { length: 256 }).notNull() 
 });
   
 
@@ -29,6 +29,6 @@ export type Host = typeof hosts.$inferSelect;
 export type NewHost = typeof hosts.$inferInsert;
 
 // Schema for inserting a user - can be used to validate API requests
-export const insertAthleteSchema = createInsertSchema(hosts);
+export const insertHostSchema = createInsertSchema(hosts);
 // Schema for selecting a user - can be used to validate API responses
-export const selectAthleteSchema = createSelectSchema(hosts);
+export const selectHostSchema = createSelectSchema(hosts);

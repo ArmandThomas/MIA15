@@ -29,6 +29,6 @@ export type host_discipline = typeof host_disciplines.$inferSelect;
 export type NewHost_discipline = typeof host_disciplines.$inferInsert;
 
 // Schema for inserting a user - can be used to validate API requests
-export const inserthost_disciplineschema = createInsertSchema(host_disciplines);
+export const inserthost_disciplinesschema = createInsertSchema(host_disciplines);
 // Schema for selecting a user - can be used to validate API responses
-export const selecthost_disciplineschema = createSelectSchema(host_disciplines);
+export const selecthost_disciplinesschema = createSelectSchema(host_disciplines);

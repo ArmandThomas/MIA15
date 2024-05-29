@@ -24,8 +24,8 @@ export const team_resultsRelations = relations(team_results, ({ one , many}) => 
   
 }));
 
-export type host_discipline = typeof team_results.$inferSelect;
-export type NewHost_discipline = typeof team_results.$inferInsert;
+export type team_result = typeof team_results.$inferSelect;
+export type NewTeam_Result = typeof team_results.$inferInsert;
 
 // Schema for inserting a user - can be used to validate API requests
 export const insertteam_resultschema = createInsertSchema(team_results);
