@@ -242,7 +242,6 @@ const Legend = React.forwardRef<HTMLOListElement, LegendProps>((props, ref) => {
       <div
         ref={scrollableRef}
 
-        
         tabIndex={0}
         className={cn(
           "flex h-full",

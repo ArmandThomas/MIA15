@@ -5,6 +5,8 @@ const routes: Route[] = [
   { name: "Accueil", path: "/" },
   { name: "Visualisation", path: "/visualisation" },
   { name: "Prédictions", path: "/predictions" },
+  { name: "Athletes", path: "/athletes" },  // Ajoutez cette ligne
+
 ];
 
 export function Header() {
