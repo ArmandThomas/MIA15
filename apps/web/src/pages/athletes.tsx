@@ -33,7 +33,7 @@ interface Athlete {
   discipline_title: string;
   country_3_letter_code: string;
   country_code: string;
-  athlete_year_birth: number;
+  athlete_year_birth_x: number;
   silver_medals: number;
   gold_medals: number;
   bronze_medals: number;
@@ -106,6 +106,7 @@ const Athletes: React.FC = () => {
     // @ts-ignore
     setData(data.slice(0, handlegetNbrAthletesToShow()));
   }
+
   return (
     <div>
       <Card className="p-4">
@@ -144,7 +145,7 @@ const Athletes: React.FC = () => {
                     <TableCell className="">
                       <div className="flex items-center">
                         <Avatar>
-                          <AvatarImage src={item.athlete_url}/>
+                          <AvatarImage src={item.athlete_img}/>
                           <AvatarFallback
                               className="bg-gray-200 white"
                           >{getInitialsFromFullName(item.athlete_full_name)}</AvatarFallback>
@@ -166,7 +167,7 @@ const Athletes: React.FC = () => {
                         <p className="ml-1">{item.country_name}</p>
                       </div>
                     </TableCell>
-                    <TableCell>{item.athlete_year_birth}</TableCell>
+                    <TableCell>{item.athlete_year_birth_x}</TableCell>
                     <TableCell>{item.total_medals_all_time}</TableCell>
                   </TableRow>
               ))}
