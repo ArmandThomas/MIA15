@@ -75,16 +75,6 @@
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
 .countdown {
   font-size: 1.5rem;
   text-align: center;
@@ -109,4 +99,14 @@
   /* flex: 1; */
   /* text-align: center; */
   margin:6%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
 }

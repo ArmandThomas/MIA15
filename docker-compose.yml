@@ -26,3 +26,16 @@ services:
       - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - host
+  phpmyadmin:
+    image: phpmyadmin
+    restart: unless-stopped
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=db
+      - PMA_USER=admin
+      - PMA_PASSWORD=p4ssw0rd
+      - MYSQL_ROOT_PASSWORD=r00tp4ssw0rd
+    networks:
+      - host

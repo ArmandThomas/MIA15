@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
 import { BrowserRouter } from "react-router-dom"; // Utilisez BrowserRouter au lieu de RouterProvider
 import { createRouter } from "./router";
 import {Header} from "./components/Header"; // Importez votre composant Header

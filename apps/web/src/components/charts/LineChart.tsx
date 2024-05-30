@@ -39,19 +39,6 @@ interface LegendItemProps {
 const LegendItem = ({ name, color, onClick, activeLegend }: LegendItemProps) => {
   const hasOnValueChange = !!onClick;
 
-  const handleClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    onClick?.(name, color);
-  };
-
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      e.stopPropagation();
-      onClick?.(name, color);
-    }
-  };
-
   return (
     <li
       className={cn(
@@ -61,8 +48,10 @@ const LegendItem = ({ name, color, onClick, activeLegend }: LegendItemProps) => 
           ? "cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800"
           : "cursor-default",
       )}
-      onClick={handleClick}
-      onKeyPress={handleKeyPress}
+      onClick={(e) => {
+        e.stopPropagation();
+        onClick?.(name, color);
+      }}
     >
       <span
         className={cn(
@@ -251,7 +240,7 @@ const Legend = React.forwardRef<HTMLOListElement, LegendProps>((props, ref) => {
     <ol ref={ref} className={cn("relative overflow-hidden", className)} {...other}>
       <div
         ref={scrollableRef}
-        // biome-ignore lint/a11y/noNoninteractiveTabindex: <explanation>
+
         tabIndex={0}
         className={cn(
           "flex h-full",
@@ -308,7 +297,6 @@ const Legend = React.forwardRef<HTMLOListElement, LegendProps>((props, ref) => {
 Legend.displayName = "Legend";
 
 const ChartLegend = (
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   { payload }: any,
   categoryColors: Map<string, AvailableChartColorsKeys>,
   setLegendHeight: React.Dispatch<React.SetStateAction<number>>,
@@ -323,15 +311,15 @@ const ChartLegend = (
     setLegendHeight(calculateHeight(legendRef.current?.clientHeight));
   });
 
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+
   const filteredPayload = payload.filter((item: any) => item.type !== "none");
 
   return (
     <div ref={legendRef} className="flex items-center justify-end">
       <Legend
-        // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+
         categories={filteredPayload.map((entry: any) => entry.value)}
-        // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+
         colors={filteredPayload.map((entry: any) => categoryColors.get(entry.value))}
         onClickLegendItem={onClick}
         activeLegend={activeLegend}
@@ -379,7 +367,7 @@ const ChartTooltipRow = ({ value, name, color }: ChartTooltipRowProps) => (
 
 interface ChartTooltipProps {
   active: boolean | undefined;
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+
   payload: any;
   label: string;
   categoryColors: Map<string, string>;
@@ -394,7 +382,7 @@ const ChartTooltip = ({
   valueFormatter,
 }: ChartTooltipProps) => {
   if (active && payload) {
-    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+
     const filteredPayload = payload.filter((item: any) => item.type !== "none");
 
     return (
@@ -463,7 +451,7 @@ type BaseEventProps = {
 type LineChartEventProps = BaseEventProps | null | undefined;
 
 interface LineChartProps extends React.HTMLAttributes<HTMLDivElement> {
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+
   data: Record<string, any>[];
   index: string;
   categories: string[];
@@ -526,7 +514,7 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>((props, ref) 
   const yAxisDomain = getYAxisDomain(autoMinValue, minValue, maxValue);
   const hasOnValueChange = !!onValueChange;
 
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+
   function onDotClick(itemData: any, event: React.MouseEvent) {
     event.stopPropagation();
 
@@ -710,7 +698,7 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>((props, ref) 
                 ),
               )}
               strokeOpacity={activeDot || (activeLegend && activeLegend !== category) ? 0.3 : 1}
-              // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+
               activeDot={(props: any) => {
                 const {
                   cx: cxCoord,
@@ -743,7 +731,7 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>((props, ref) 
                   />
                 );
               }}
-              // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+
               dot={(props: any) => {
                 const {
                   stroke,
@@ -813,7 +801,7 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>((props, ref) 
                   tooltipType="none"
                   strokeWidth={12}
                   connectNulls={connectNulls}
-                  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+
                   onClick={(props: any, event) => {
                     event.stopPropagation();
                     const { name } = props;
