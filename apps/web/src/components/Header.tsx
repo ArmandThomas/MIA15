@@ -6,6 +6,7 @@ const routes: Route[] = [
   { name: "Visualisation", path: "/visualisation" },
   { name: "Prédictions", path: "/predictions" },
   { name: "Athletes", path: "/athletes" },  // Ajoutez cette ligne
+  {name: "Classement", path: "/classement"}
 
 ];
 
