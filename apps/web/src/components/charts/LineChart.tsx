@@ -39,6 +39,7 @@ interface LegendItemProps {
 const LegendItem = ({ name, color, onClick, activeLegend }: LegendItemProps) => {
   const hasOnValueChange = !!onClick;
 
+
   return (
     <li
       className={cn(
@@ -297,6 +298,7 @@ const Legend = React.forwardRef<HTMLOListElement, LegendProps>((props, ref) => {
 Legend.displayName = "Legend";
 
 const ChartLegend = (
+
   { payload }: any,
   categoryColors: Map<string, AvailableChartColorsKeys>,
   setLegendHeight: React.Dispatch<React.SetStateAction<number>>,

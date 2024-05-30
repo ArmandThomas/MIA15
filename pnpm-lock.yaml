@@ -95,9 +95,11 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+
       date-fns:
         specifier: ^3.6.0
         version: 3.6.0
+
 
       react:
         specifier: ^18.2.0
@@ -1288,6 +1290,7 @@ packages:
 
   classnames@2.5.1:
     resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
+
   cli-color@2.0.4:
     resolution: {integrity: sha512-zlnpg0jNcibNrO7GG9IeHH7maWFeCz+Ja1wx/7tZNU5ASSSSZ+/qZciM0/LHCYxSdqv5h2sdbQ/PXYdOuetXvA==}
     engines: {node: '>=0.10'}
@@ -2786,7 +2789,12 @@ snapshots:
 
   '@jridgewell/set-array@1.2.1': {}
 
+
+
   '@jridgewell/sourcemap-codec@1.4.15': {}
+
+  '@eslint/js@8.57.0': {}
+
 
   '@jridgewell/trace-mapping@0.3.25':
     dependencies:

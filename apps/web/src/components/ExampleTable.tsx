@@ -9,7 +9,6 @@ import {
   TableRow,
 } from "@/components/ui/Table";
 import { DynamicPagination } from "./DynamicPagination";
-
 export function TableExample() {
   const data: Array<{
     workspace: string;
