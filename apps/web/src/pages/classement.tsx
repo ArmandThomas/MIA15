@@ -5,6 +5,7 @@ import { Card } from '@/components/ui/Card';
 import { BarChart, Bar, YAxis, XAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import data from '../../../../packages/ml/csv/medails_pays_annee.json';
 
+
 interface Medal {
   year: number;
   gold: number;
@@ -19,6 +20,7 @@ interface Country {
 }
 
 const Classement: React.FC = () => {
+
   const [countries, setCountries] = useState<Country[]>([]);
   const [currentYearIndex, setCurrentYearIndex] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
@@ -33,6 +35,7 @@ const Classement: React.FC = () => {
       setCurrentYearIndex((prevIndex) => {
         const nextIndex = prevIndex - 1;
         return nextIndex < 0 ? data[0].medals.length - 1 : nextIndex;
+
       });
     }, 6000);
   
