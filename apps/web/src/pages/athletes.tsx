@@ -170,61 +170,61 @@ const Athletes: React.FC = () => {
             </SelectContent>
           </Select>
         </div>
-          <TableRoot className="mt-8 w-10/12 flex mx-auto">
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableHeaderCell>Nom</TableHeaderCell>
-                  <TableHeaderCell>Sport</TableHeaderCell>
-                  <TableHeaderCell>Pays</TableHeaderCell>
-                  <TableHeaderCell>Age</TableHeaderCell>
-                  <TableHeaderCell>Médailles</TableHeaderCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {data.map((item) => (
-                    <TableRow key={item.id}>
-                      <TableCell className="">
-                        <div className="flex items-center">
-                          <Avatar>
-                            <AvatarImage src={item.imageUrl} />
-                            <AvatarFallback
-                                className="bg-gray-200 white"
-                            >{getInitialsFromFullName(item.name)}</AvatarFallback>
-                          </Avatar>
-                          <p className="ml-1">{item.name}</p>
-                        </div>
-                      </TableCell>
-                      <TableCell>{item.sport}</TableCell>
-                      <TableCell>{item.country}</TableCell>
-                      <TableCell>{item.age}</TableCell>
-                      <TableCell>
-                        <ul className="flex">
-                          <li>
-                            <div className="text-center my-1">
-                              <GoldMedal fontSize={32}/>
-                              {item.medals.gold}
-                            </div>
-                          </li>
-                          <li>
-                            <div className="text-center my-1">
-                              <SilverMedal fontSize={32}/>
-                              {item.medals.silver}
-                            </div>
-                          </li>
-                          <li>
-                            <div className="text-center my-1">
-                              <BronzeMedal fontSize={32}/>
-                              {item.medals.bronze}
-                            </div>
-                          </li>
-                        </ul>
-                      </TableCell>
-                    </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableRoot>
+        <TableRoot className="mt-8 w-10/12 flex mx-auto">
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableHeaderCell>Nom</TableHeaderCell>
+                <TableHeaderCell>Sport</TableHeaderCell>
+                <TableHeaderCell>Pays</TableHeaderCell>
+                <TableHeaderCell>Age</TableHeaderCell>
+                <TableHeaderCell>Médailles</TableHeaderCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {data.map((item) => (
+                  <TableRow key={item.id}>
+                    <TableCell className="">
+                      <div className="flex items-center">
+                        <Avatar>
+                          <AvatarImage src={item.imageUrl}/>
+                          <AvatarFallback
+                              className="bg-gray-200 white"
+                          >{getInitialsFromFullName(item.name)}</AvatarFallback>
+                        </Avatar>
+                        <p className="ml-1">{item.name}</p>
+                      </div>
+                    </TableCell>
+                    <TableCell>{item.sport}</TableCell>
+                    <TableCell>{item.country}</TableCell>
+                    <TableCell>{item.age}</TableCell>
+                    <TableCell>
+                      <ul className="flex">
+                        <li>
+                          <div className="text-center my-1">
+                            <GoldMedal fontSize={32}/>
+                            {item.medals.gold}
+                          </div>
+                        </li>
+                        <li>
+                          <div className="text-center my-1">
+                            <SilverMedal fontSize={32}/>
+                            {item.medals.silver}
+                          </div>
+                        </li>
+                        <li>
+                          <div className="text-center my-1">
+                            <BronzeMedal fontSize={32}/>
+                            {item.medals.bronze}
+                          </div>
+                        </li>
+                      </ul>
+                    </TableCell>
+                  </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableRoot>
         <div className="mt-2 flex justify-center">
           <Button
               onClick={handleMoreAthletes}
@@ -232,7 +232,7 @@ const Athletes: React.FC = () => {
         </div>
       </Card>
     </div>
-);
+  );
 };
 
 export default Athletes;
