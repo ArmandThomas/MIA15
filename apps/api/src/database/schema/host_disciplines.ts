@@ -5,7 +5,7 @@ import { disciplines } from "./disciplines.js";
 import { hosts } from "./hosts.js";
 import { events } from "./events.js";
 
-export const host_disciplines = mysqlTable(
+export const hostDisciplines = mysqlTable(
   "host_disciplines",
   {
     idDiscipline: bigint("id_discipline", { mode: "number", unsigned: true })
@@ -21,16 +21,14 @@ export const host_disciplines = mysqlTable(
   }),
 );
 
-export const host_disciplinesRelations = relations(host_disciplines, ({ one, many }) => ({
+export const hostDisciplinesRelations = relations(hostDisciplines, ({ one, many }) => ({
   discipline: one(disciplines),
   host: one(hosts),
   event: many(events),
 }));
 
-export type host_discipline = typeof host_disciplines.$inferSelect;
-export type NewHost_discipline = typeof host_disciplines.$inferInsert;
+export type HostDiscipline = typeof hostDisciplines.$inferSelect;
+export type NewHostDiscipline = typeof hostDisciplines.$inferInsert;
 
-// Schema for inserting a user - can be used to validate API requests
-export const inserthost_disciplinesschema = createInsertSchema(host_disciplines);
-// Schema for selecting a user - can be used to validate API responses
-export const selecthost_disciplinesschema = createSelectSchema(host_disciplines);
+export const insertHostDisciplineSchema = createInsertSchema(hostDisciplines);
+export const selecthostDisciplineSchema = createSelectSchema(hostDisciplines);
