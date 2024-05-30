@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 interface TimeLeft {
   days: number;
@@ -9,7 +9,7 @@ interface TimeLeft {
 
 const Countdown: React.FC = () => {
   const calculateTimeLeft = (): TimeLeft => {
-    const targetDate = new Date('2024-07-26T00:00:00'); // Date fixe pour les JO d'été en heure locale
+    const targetDate = new Date("2024-07-26T00:00:00"); // Date fixe pour les JO d'été en heure locale
     const now = new Date();
     const difference = targetDate.getTime() - now.getTime();
 
@@ -42,9 +42,11 @@ const Countdown: React.FC = () => {
 
   return (
     <div>
-    <div className=' countdown-timer flex'>
+      <div className=" countdown-timer flex">
         Compte à rebours avant les JO de Paris
-      {` ${formatTime(timeLeft.days)}:${formatTime(timeLeft.hours)}:${formatTime(timeLeft.minutes)}:${formatTime(timeLeft.seconds)}`}
+        {` ${formatTime(timeLeft.days)}:${formatTime(timeLeft.hours)}:${formatTime(
+          timeLeft.minutes,
+        )}:${formatTime(timeLeft.seconds)}`}
       </div>
       <div className="countdown-labels">
         <span>Days</span>

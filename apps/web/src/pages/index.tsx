@@ -1,13 +1,11 @@
-import { Header } from "@/components/Header";
 import { Card } from "@/components/ui/Card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs";
 import { LineChartAxisLabelsExample } from "@/components/ExampleLineChart";
 import { TableExample } from "@/components/ExampleTable";
-
 import Countdown from "@/components/Countdown";
-import { Callout } from '@/components/Callout';
+import { Callout } from "@/components/Callout";
 import { BarChartAxisLabelsExample } from "@/components/ExampleBarChart";
-
+import { AthleteMedalsTable } from "@/components/AthleteMedalsTable";
 
 export default function Home() {
   return (
@@ -19,7 +17,7 @@ export default function Home() {
 
         <div className="flex items-center justify-center p-4">
           <Callout>
-          <Countdown />
+            <Countdown />
           </Callout>
         </div>
 
@@ -28,13 +26,8 @@ export default function Home() {
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="analytics">Analytics</TabsTrigger>
 
-            <TabsTrigger value="reports">
-
-              Reports
-            </TabsTrigger>
-            <TabsTrigger value="notifications" disabled>
-              Notifications
-            </TabsTrigger>
+            <TabsTrigger value="reports">Reports</TabsTrigger>
+            <TabsTrigger value="notifications">Notifications</TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview" className="space-y-4">
@@ -53,7 +46,11 @@ export default function Home() {
               <BarChartAxisLabelsExample />
             </Card>
           </TabsContent>
-
+          <TabsContent value="notifications" className="space-y-4">
+            <Card className="p-4">
+              <AthleteMedalsTable />
+            </Card>
+          </TabsContent>
         </Tabs>
       </div>
     </>

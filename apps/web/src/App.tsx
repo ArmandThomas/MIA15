@@ -4,7 +4,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import { BrowserRouter } from "react-router-dom"; // Utilisez BrowserRouter au lieu de RouterProvider
 import { createRouter } from "./router";
-import {Header} from "./components/Header"; // Importez votre composant Header
+import { Header } from "./components/Header"; // Importez votre composant Header
 import { Routes, Route } from "react-router-dom"; // Importez Routes et Route pour définir les routes
 import Athletes from "./pages/athletes";
 import Classement from "./pages/classement";
@@ -19,9 +19,9 @@ export default function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter> 
-        <Header /> 
-        <Routes> 
+      <BrowserRouter>
+        <Header />
+        <Routes>
           <Route path="/" element={<Home />} />
           {/* <Route path="/visualisation" element={<Visualisation />} />
           <Route path="/predictions" element={<Predictions />} /> */}

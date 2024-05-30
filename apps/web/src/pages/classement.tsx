@@ -1,10 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs";
-import { Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from "@/components/ui/Table";
-import { Card } from '@/components/ui/Card';
-import { BarChart, Bar, YAxis, XAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import data from '../../../../packages/ml/csv/medails_pays_annee.json';
-
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeaderCell,
+  TableRow,
+} from "@/components/ui/Table";
+import { Card } from "@/components/ui/Card";
+import { BarChart, Bar, YAxis, XAxis, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import data from "../../../../packages/ml/csv/medails_pays_annee.json";
 
 interface Medal {
   year: number;
@@ -20,7 +26,6 @@ interface Country {
 }
 
 const Classement: React.FC = () => {
-
   const [countries, setCountries] = useState<Country[]>([]);
   const [currentYearIndex, setCurrentYearIndex] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
@@ -28,32 +33,31 @@ const Classement: React.FC = () => {
   useEffect(() => {
     setCountries(data);
 
-    const year2020Index = data[0].medals.findIndex(medal => medal.year === 2020);
+    const year2020Index = data[0].medals.findIndex((medal) => medal.year === 2020);
     setCurrentYearIndex(year2020Index);
 
     const interval = setInterval(() => {
       setCurrentYearIndex((prevIndex) => {
         const nextIndex = prevIndex - 1;
         return nextIndex < 0 ? data[0].medals.length - 1 : nextIndex;
-
       });
     }, 6000);
-  
+
     return () => clearInterval(interval);
   }, []);
 
   const currentYearData = countries
-    .map(country => ({
+    .map((country) => ({
       country: country.name,
       totalMedals: country.medals[currentYearIndex]?.total || 0,
-      medals: country.medals[currentYearIndex] 
+      medals: country.medals[currentYearIndex],
     }))
-    .filter(data => data.totalMedals > 0)
+    .filter((data) => data.totalMedals > 0)
     .sort((a, b) => b.totalMedals - a.totalMedals)
     .slice(0, 5);
 
-  const filteredCountries = countries.filter(country =>
-    country.name.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredCountries = countries.filter((country) =>
+    country.name.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
@@ -107,10 +111,10 @@ const Classement: React.FC = () => {
             <ResponsiveContainer width="100%" height={400}>
               <BarChart data={currentYearData} layout="vertical">
                 <XAxis type="number" />
-                <YAxis type="category" dataKey="country" tick={{fontSize: 12}} />
+                <YAxis type="category" dataKey="country" tick={{ fontSize: 12 }} />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="medals.total" fill="#8884d8" name="Total des médailles"/>
+                <Bar dataKey="medals.total" fill="#8884d8" name="Total des médailles" />
               </BarChart>
             </ResponsiveContainer>
           </Card>

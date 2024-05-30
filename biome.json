@@ -3,6 +3,9 @@
   "organizeImports": {
     "enabled": true
   },
+  "files": {
+    "include": ["apps/**/*.ts", "apps/**/*.tsx", "packages/**/*.ts"]
+  },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
@@ -11,13 +14,7 @@
     "lineEnding": "lf"
   },
   "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true,
-      "suspicious": {
-        "noArrayIndexKey": "off"
-      }
-    }
+    "enabled": true
   },
   "overrides": [
     {

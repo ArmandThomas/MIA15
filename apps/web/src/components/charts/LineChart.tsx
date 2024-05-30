@@ -39,7 +39,6 @@ interface LegendItemProps {
 const LegendItem = ({ name, color, onClick, activeLegend }: LegendItemProps) => {
   const hasOnValueChange = !!onClick;
 
-
   return (
     <li
       className={cn(
@@ -241,7 +240,6 @@ const Legend = React.forwardRef<HTMLOListElement, LegendProps>((props, ref) => {
     <ol ref={ref} className={cn("relative overflow-hidden", className)} {...other}>
       <div
         ref={scrollableRef}
-
         tabIndex={0}
         className={cn(
           "flex h-full",
@@ -298,7 +296,6 @@ const Legend = React.forwardRef<HTMLOListElement, LegendProps>((props, ref) => {
 Legend.displayName = "Legend";
 
 const ChartLegend = (
-
   { payload }: any,
   categoryColors: Map<string, AvailableChartColorsKeys>,
   setLegendHeight: React.Dispatch<React.SetStateAction<number>>,
@@ -313,15 +310,12 @@ const ChartLegend = (
     setLegendHeight(calculateHeight(legendRef.current?.clientHeight));
   });
 
-
   const filteredPayload = payload.filter((item: any) => item.type !== "none");
 
   return (
     <div ref={legendRef} className="flex items-center justify-end">
       <Legend
-
         categories={filteredPayload.map((entry: any) => entry.value)}
-
         colors={filteredPayload.map((entry: any) => categoryColors.get(entry.value))}
         onClickLegendItem={onClick}
         activeLegend={activeLegend}
@@ -384,7 +378,6 @@ const ChartTooltip = ({
   valueFormatter,
 }: ChartTooltipProps) => {
   if (active && payload) {
-
     const filteredPayload = payload.filter((item: any) => item.type !== "none");
 
     return (
@@ -453,7 +446,6 @@ type BaseEventProps = {
 type LineChartEventProps = BaseEventProps | null | undefined;
 
 interface LineChartProps extends React.HTMLAttributes<HTMLDivElement> {
-
   data: Record<string, any>[];
   index: string;
   categories: string[];
@@ -515,7 +507,6 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>((props, ref) 
 
   const yAxisDomain = getYAxisDomain(autoMinValue, minValue, maxValue);
   const hasOnValueChange = !!onValueChange;
-
 
   function onDotClick(itemData: any, event: React.MouseEvent) {
     event.stopPropagation();
@@ -700,7 +691,6 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>((props, ref) 
                 ),
               )}
               strokeOpacity={activeDot || (activeLegend && activeLegend !== category) ? 0.3 : 1}
-
               activeDot={(props: any) => {
                 const {
                   cx: cxCoord,
@@ -733,7 +723,6 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>((props, ref) 
                   />
                 );
               }}
-
               dot={(props: any) => {
                 const {
                   stroke,
@@ -803,7 +792,6 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>((props, ref) 
                   tooltipType="none"
                   strokeWidth={12}
                   connectNulls={connectNulls}
-
                   onClick={(props: any, event) => {
                     event.stopPropagation();
                     const { name } = props;

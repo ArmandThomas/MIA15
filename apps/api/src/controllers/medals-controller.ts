@@ -1,52 +1,25 @@
-import type { RequestHandler } from "express";
+import { MedalService } from "@/services/medals-service.js";
+import { asyncHandler } from "@/utils/async-handler.js";
+import { paginationSchema } from "@/utils/filters.js";
+import { z } from "zod";
 
-const getMedalsByDiscipline: RequestHandler = (req, res) => {
-  const { discipline_title } = req.params;
-  res.json({ message: `Récupérer les médailles pour la discipline: ${discipline_title}` });
-};
+const findAllByAthlete = asyncHandler(async (req, res, next) => {
+  const findAtheleteResultFilterSchema = paginationSchema.extend({
+    country: z.string().optional(),
+  });
 
-const getMedalsByGame: RequestHandler = (req, res) => {
-  const { slug_game } = req.params;
-  res.json({ message: `Récupérer les médailles pour le jeu: ${slug_game}` });
-};
+  const filters = findAtheleteResultFilterSchema.safeParse(req.query);
 
-const getMedalsByEvent: RequestHandler = (req, res) => {
-  const { event_title } = req.params;
-  res.json({ message: `Récupérer les médailles pour l'événement: ${event_title}` });
-};
+  if (!filters.success) {
+    res.status(400).json({ error: filters.error.flatten() });
+    return next();
+  }
 
-const getMedalsByEventGender: RequestHandler = (req, res) => {
-  const { event_gender } = req.params;
-  res.json({ message: `Récupérer les médailles pour le genre d'événement: ${event_gender}` });
-};
+  const athletes = await MedalService.findAllByAthlete(filters.data);
 
-const getMedalsByMedalType: RequestHandler = (req, res) => {
-  const { medal_type } = req.params;
-  res.json({ message: `Récupérer les médailles pour le type de médaille: ${medal_type}` });
-};
+  res.status(200).json(athletes);
+});
 
-const getMedalsByParticipantType: RequestHandler = (req, res) => {
-  const { participant_type } = req.params;
-  res.json({ message: `Récupérer les médailles pour le type de participant: ${participant_type}` });
-};
-
-const getMedalsByAthlete: RequestHandler = (req, res) => {
-  const { athlete_full_name } = req.params;
-  res.json({ message: `Récupérer les médailles pour l'athlète: ${athlete_full_name}` });
-};
-
-const getMedalsByCountry: RequestHandler = (req, res) => {
-  const { country_name } = req.params;
-  res.json({ message: `Récupérer les médailles pour le pays: ${country_name}` });
-};
-
-export default {
-  getMedalsByDiscipline,
-  getMedalsByGame,
-  getMedalsByEvent,
-  getMedalsByEventGender,
-  getMedalsByMedalType,
-  getMedalsByParticipantType,
-  getMedalsByAthlete,
-  getMedalsByCountry,
+export const MedalsController = {
+  findAllByAthlete,
 };

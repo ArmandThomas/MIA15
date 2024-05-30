@@ -1,8 +1,8 @@
 import { AthleteService } from "@/services/athlete-service.js";
+import { asyncHandler } from "@/utils/async-handler.js";
+import { paginationSchema } from "@/utils/filters.js";
 import type { RequestHandler } from "express";
 import { z } from "zod";
-
-// TODO: Remove this controller (example only)
 
 const findAthlete: RequestHandler = async (req, res, next) => {
   const athleteId = z.coerce.number().safeParse(req.params.id);
@@ -23,28 +23,20 @@ const findAthlete: RequestHandler = async (req, res, next) => {
   next();
 };
 
-const findAllAthletes: RequestHandler = async (req, res, next) => {
-  const athletes = await AthleteService.findAll();
-  res.json(athletes);
-  next();
-};
+const findAllAthletes = asyncHandler(async (req, res, next) => {
+  const filters = paginationSchema.safeParse(req.query);
 
-const findAthleteByCountry: RequestHandler = async (req, res, next) => {
-  const idCountry = z.coerce.number().safeParse(req.params.idCountry);
-
-  if (!idCountry.success) {
-    res.status(400).json({ error: "Invalid request body" });
+  if (!filters.success) {
+    res.status(400).json({ error: filters.error.flatten() });
     return next();
   }
 
-  const athletes = await AthleteService.findByCountry(idCountry.data);
+  const athletes = await AthleteService.findAll(filters.data);
 
-  res.json(athletes);
-  next();
-};
+  res.status(200).json(athletes);
+});
 
-export const athleteController = {
+export const AthleteController = {
   findAthlete,
   findAllAthletes,
-  findAthleteByCountry,
 };

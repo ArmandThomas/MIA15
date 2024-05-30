@@ -1,7 +1,7 @@
-import React from "react"
-import { tv, type VariantProps } from "tailwind-variants"
+import React from "react";
+import { tv, type VariantProps } from "tailwind-variants";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const calloutVariants = tv({
   base: "flex flex-col overflow-hidden rounded-md p-4 text-sm",
@@ -42,46 +42,43 @@ const calloutVariants = tv({
   defaultVariants: {
     variant: "default",
   },
-})
+});
 
 interface CalloutProps
   extends React.ComponentPropsWithoutRef<"div">,
     VariantProps<typeof calloutVariants> {
-  title?: string
-  icon?: React.ElementType | React.ReactElement
+  title?: string;
+  icon?: React.ElementType | React.ReactElement;
 }
 
 const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
-  (
-    { title, icon: Icon, className, variant, children, ...props }: CalloutProps,
-    forwardedRef,
-  ) => {
+  ({ title, icon: Icon, className, variant, children, ...props }: CalloutProps, forwardedRef) => {
     return (
       <div
         ref={forwardedRef}
         className={cn(calloutVariants({ variant }), className)}
         {...props}
-        style={{width: "100%"}}
+        style={{ width: "100%" }}
       >
-        <div className={cn("flex items-start")} >
+        <div className={cn("flex items-start")}>
           {Icon && typeof Icon === "function" ? (
-            <Icon
-              className={cn("mr-1.5 h-5 w-5 shrink-0")}
-              aria-hidden="true"
-            />
+            <Icon className={cn("mr-1.5 h-5 w-5 shrink-0")} aria-hidden="true" />
           ) : (
             Icon
           )}
           {title && <span className={cn("font-semibold")}>{title}</span>}
         </div>
-        <div  style={{display : "flex", justifyContent: "center"}} className={cn("overflow-y-auto", children ? "mt-2" : "")}>
+        <div
+          style={{ display: "flex", justifyContent: "center" }}
+          className={cn("overflow-y-auto", children ? "mt-2" : "")}
+        >
           {children}
         </div>
       </div>
-    )
+    );
   },
-)
+);
 
-Callout.displayName = "Callout"
+Callout.displayName = "Callout";
 
-export { Callout, calloutVariants, type CalloutProps }
+export { Callout, calloutVariants, type CalloutProps };

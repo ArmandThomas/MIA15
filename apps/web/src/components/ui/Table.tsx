@@ -1,57 +1,55 @@
 // Tremor Raw Table [v0.0.1]
 
-import React from "react"
+import React from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
-const TableRoot = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, children, ...props }, forwardedRef) => (
-  <div
-    ref={forwardedRef}
-    // Activate if table is used in a float enironment
-    // className="flow-root"
-  >
+const TableRoot = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, children, ...props }, forwardedRef) => (
     <div
-      // make table scrollable on mobile
-      className={cn("w-full overflow-auto whitespace-nowrap", className)}
-      {...props}
+      ref={forwardedRef}
+      // Activate if table is used in a float enironment
+      // className="flow-root"
     >
-      {children}
+      <div
+        // make table scrollable on mobile
+        className={cn("w-full overflow-auto whitespace-nowrap", className)}
+        {...props}
+      >
+        {children}
+      </div>
     </div>
-  </div>
-))
+  ),
+);
 
-TableRoot.displayName = "TableRoot"
+TableRoot.displayName = "TableRoot";
 
-const Table = React.forwardRef<
-  HTMLTableElement,
-  React.TableHTMLAttributes<HTMLTableElement>
->(({ className, ...props }, forwardedRef) => (
-  <table
-    ref={forwardedRef}
-    className={cn(
-      // base
-      "w-full caption-bottom border-b",
-      // border color
-      "border-gray-200 dark:border-gray-800",
-      className,
-    )}
-    {...props}
-  />
-))
+const Table = React.forwardRef<HTMLTableElement, React.TableHTMLAttributes<HTMLTableElement>>(
+  ({ className, ...props }, forwardedRef) => (
+    <table
+      ref={forwardedRef}
+      className={cn(
+        // base
+        "w-full caption-bottom border-b",
+        // border color
+        "border-gray-200 dark:border-gray-800",
+        className,
+      )}
+      {...props}
+    />
+  ),
+);
 
-Table.displayName = "Table"
+Table.displayName = "Table";
 
 const TableHead = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, forwardedRef) => (
   <thead ref={forwardedRef} className={cn(className)} {...props} />
-))
+));
 
-TableHead.displayName = "TableHead"
+TableHead.displayName = "TableHead";
 
 const TableHeaderCell = React.forwardRef<
   HTMLTableCellElement,
@@ -70,9 +68,9 @@ const TableHeaderCell = React.forwardRef<
     )}
     {...props}
   />
-))
+));
 
-TableHeaderCell.displayName = "TableHeaderCell"
+TableHeaderCell.displayName = "TableHeaderCell";
 
 const TableBody = React.forwardRef<
   HTMLTableSectionElement,
@@ -89,26 +87,25 @@ const TableBody = React.forwardRef<
     )}
     {...props}
   />
-))
+));
 
-TableBody.displayName = "TableBody"
+TableBody.displayName = "TableBody";
 
-const TableRow = React.forwardRef<
-  HTMLTableRowElement,
-  React.HTMLAttributes<HTMLTableRowElement>
->(({ className, ...props }, forwardedRef) => (
-  <tr
-    ref={forwardedRef}
-    className={cn(
-      "[&_td:last-child]:pr-4 [&_th:last-child]:pr-4",
-      "[&_td:first-child]:pl-4 [&_th:first-child]:pl-4",
-      className,
-    )}
-    {...props}
-  />
-))
+const TableRow = React.forwardRef<HTMLTableRowElement, React.HTMLAttributes<HTMLTableRowElement>>(
+  ({ className, ...props }, forwardedRef) => (
+    <tr
+      ref={forwardedRef}
+      className={cn(
+        "[&_td:last-child]:pr-4 [&_th:last-child]:pr-4",
+        "[&_td:first-child]:pl-4 [&_th:first-child]:pl-4",
+        className,
+      )}
+      {...props}
+    />
+  ),
+);
 
-TableRow.displayName = "TableRow"
+TableRow.displayName = "TableRow";
 
 const TableCell = React.forwardRef<
   HTMLTableCellElement,
@@ -125,9 +122,9 @@ const TableCell = React.forwardRef<
     )}
     {...props}
   />
-))
+));
 
-TableCell.displayName = "TableCell"
+TableCell.displayName = "TableCell";
 
 const TableFoot = React.forwardRef<
   HTMLTableSectionElement,
@@ -147,10 +144,10 @@ const TableFoot = React.forwardRef<
       )}
       {...props}
     />
-  )
-})
+  );
+});
 
-TableFoot.displayName = "TableFoot"
+TableFoot.displayName = "TableFoot";
 
 const TableCaption = React.forwardRef<
   HTMLTableCaptionElement,
@@ -167,9 +164,9 @@ const TableCaption = React.forwardRef<
     )}
     {...props}
   />
-))
+));
 
-TableCaption.displayName = "TableCaption"
+TableCaption.displayName = "TableCaption";
 
 export {
   Table,
@@ -181,4 +178,4 @@ export {
   TableHeaderCell,
   TableRoot,
   TableRow,
-}
+};

@@ -1,5 +1,7 @@
-import { db } from "@/database/client.js";
 import type { Athlete } from "@/database/schema/athletes.js";
+import type { PaginationFilters } from "@shared/dto/PaginationFilters.js";
+import { db } from "@/database/client.js";
+import { getOffset } from "@/utils/filters.js";
 
 async function findOne(id: number): Promise<Athlete | null> {
   const athlete = await db.query.athletes.findFirst({
@@ -9,21 +11,16 @@ async function findOne(id: number): Promise<Athlete | null> {
   return athlete || null;
 }
 
-async function findAll(): Promise<Athlete[]> {
-  const allAthletes = await db.query.athletes.findMany();
-  return allAthletes;
-}
-
-async function findByCountry(country: number): Promise<Athlete[]> {
-  const athletesByCountry = await db.query.athletes.findMany({
-    where: (athletes, { eq }) => eq(athletes.idCountry, country),
+async function findAll(filters: PaginationFilters): Promise<Athlete[]> {
+  const { page, count } = filters;
+  const allAthletes = await db.query.athletes.findMany({
+    offset: getOffset(page, count),
+    limit: count,
   });
-
-  return athletesByCountry;
+  return allAthletes;
 }
 
 export const AthleteService = {
   findOne,
   findAll,
-  findByCountry,
 };

@@ -5,6 +5,6 @@ export const useHover = () => {
 
   const onMouseEnter = () => setHover(true);
   const onMouseLeave = () => setHover(false);
-  
+
   return { hover, onMouseEnter, onMouseLeave };
 };
