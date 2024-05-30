@@ -6,6 +6,8 @@ import GoldMedal from '@/assets/medals_icons/GoldMedal';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar";
 import {getInitialsFromFullName} from '@/utils'
 
+import TopAthletes from '@/assets/fakedata/top_athletes.json';
+
 import {
   Table,
   TableBody,
@@ -27,16 +29,18 @@ import { Card } from '@/components/ui/Card';
 
 interface Athlete {
   id: number;
-  name: string;
-  sport: string;
-  country: string;
-  age: number;
-  medals: {
-    gold: number;
-    silver: number;
-    bronze: number;
-  };
-  imageUrl?: string;
+  athlete_full_name: string;
+  discipline_title: string;
+  country_3_letter_code: string;
+  country_code: string;
+  athlete_year_birth: number;
+  silver_medals: number;
+  gold_medals: number;
+  bronze_medals: number;
+  athlete_url?: string;
+  total_medals: number;
+  total_medals_all_time: number;
+  country_name: string;
 }
 
 interface Country {
@@ -54,11 +58,18 @@ const Athletes: React.FC = () => {
 
   const fetchGetListCountries = async () => {
     // TODO : Replace with call api
-    const fakeData = [
-        {countryName : 'Etats unis', countryISO : 'USA'},
-        {countryName : 'Canada', countryISO : 'CAN'},
-    ]
-    setListCountry(fakeData)
+    const data = TopAthletes;
+    const fakeData = data.filter(item => item.country_3_letter_code !== "")
+    const key = 'country_name';
+    const arrayUniqueByKey = [...new Map(fakeData.map(item =>
+        [item[key], item])).values()];
+    const countries = arrayUniqueByKey.map(item => {
+        return {
+            countryName: item.country_name,
+            countryISO: item.country_3_letter_code
+        }
+    }).sort((a, b) => a.countryName.localeCompare(b.countryName))
+    setListCountry(countries)
   }
 
   useEffect(() => {
@@ -85,69 +96,15 @@ const Athletes: React.FC = () => {
 
   async function fetchData() {
     //TODO : Replace with call api
-    const fakeData = [
-      {
-        id: 1,
-        name: "John Doe",
-        sport: "Swimming",
-        country: "USA",
-        age: 28,
-        medals: {
-          gold: 3,
-          silver: 2,
-          bronze: 1
-        }
-      },
-      {
-        id: 2,
-        name: "Alice Smith",
-        sport: "Gymnastics",
-        country: "Canada",
-        age: 24,
-        medals: {
-          gold: 1,
-          silver: 3,
-          bronze: 0
-        }
-      },
-      {
-        id: 3,
-        name: "Mohamed Ali",
-        sport: "Boxing",
-        country: "France",
-        age: 30,
-        medals: {
-          gold: 2,
-          silver: 1,
-          bronze: 1
-        }
-      },
-      {
-        id: 4,
-        name: "Maria Garcia",
-        sport: "Tennis",
-        country: "Spain",
-        age: 27,
-        medals: {
-          gold: 0,
-          silver: 2,
-          bronze: 1
-        }
-      },
-      {
-        id: 5,
-        name: "Chen Wei",
-        sport: "Table Tennis",
-        country: "China",
-        age: 26,
-        medals: {
-          gold: 4,
-          silver: 0,
-          bronze: 0
-        }
-      }
-    ];
-    setData(fakeData);
+    const data = TopAthletes;
+    console.log(data)
+    if (queryParams.get('country')) {
+        // @ts-ignore
+      setData(data.filter((item) => item.country_3_letter_code === queryParams.get('country')));
+        return;
+    }
+    // @ts-ignore
+    setData(data.slice(0, handlegetNbrAthletesToShow()));
   }
   return (
     <div>
@@ -177,49 +134,40 @@ const Athletes: React.FC = () => {
                 <TableHeaderCell>Nom</TableHeaderCell>
                 <TableHeaderCell>Sport</TableHeaderCell>
                 <TableHeaderCell>Pays</TableHeaderCell>
-                <TableHeaderCell>Age</TableHeaderCell>
-                <TableHeaderCell>Médailles</TableHeaderCell>
+                <TableHeaderCell>Année de naissance</TableHeaderCell>
+                <TableHeaderCell>Médailles en solo</TableHeaderCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {data.map((item) => (
-                  <TableRow key={item.id}>
+                  <TableRow key={item.athlete_full_name}>
                     <TableCell className="">
                       <div className="flex items-center">
                         <Avatar>
-                          <AvatarImage src={item.imageUrl}/>
+                          <AvatarImage src={item.athlete_url}/>
                           <AvatarFallback
                               className="bg-gray-200 white"
-                          >{getInitialsFromFullName(item.name)}</AvatarFallback>
+                          >{getInitialsFromFullName(item.athlete_full_name)}</AvatarFallback>
                         </Avatar>
-                        <p className="ml-1">{item.name}</p>
+                        <p className="ml-1">{item.athlete_full_name}</p>
                       </div>
                     </TableCell>
-                    <TableCell>{item.sport}</TableCell>
-                    <TableCell>{item.country}</TableCell>
-                    <TableCell>{item.age}</TableCell>
+                    <TableCell>{item.discipline_title}</TableCell>
                     <TableCell>
-                      <ul className="flex">
-                        <li>
-                          <div className="text-center my-1">
-                            <GoldMedal fontSize={32}/>
-                            {item.medals.gold}
-                          </div>
-                        </li>
-                        <li>
-                          <div className="text-center my-1">
-                            <SilverMedal fontSize={32}/>
-                            {item.medals.silver}
-                          </div>
-                        </li>
-                        <li>
-                          <div className="text-center my-1">
-                            <BronzeMedal fontSize={32}/>
-                            {item.medals.bronze}
-                          </div>
-                        </li>
-                      </ul>
+                      <div className="flex items-center">
+                        <Avatar>
+                          <AvatarImage
+                              src={`http://purecatamphetamine.github.io/country-flag-icons/1x1/${item.country_code}.svg`}
+                          />
+                          <AvatarFallback
+                              className="bg-gray-200 white"
+                          >{item.country_3_letter_code}</AvatarFallback>
+                        </Avatar>
+                        <p className="ml-1">{item.country_name}</p>
+                      </div>
                     </TableCell>
+                    <TableCell>{item.athlete_year_birth}</TableCell>
+                    <TableCell>{item.total_medals_all_time}</TableCell>
                   </TableRow>
               ))}
             </TableBody>
