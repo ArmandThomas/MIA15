@@ -1,3 +1,4 @@
+
 import * as React from "react";
 import { ChevronLeftIcon, ChevronRightIcon, DotsHorizontalIcon } from "@radix-ui/react-icons";
 import { RiArrowLeftSLine, RiArrowRightSLine, RiMoreLine } from "@remixicon/react";
@@ -5,6 +6,7 @@ import { RiArrowLeftSLine, RiArrowRightSLine, RiMoreLine } from "@remixicon/reac
 import { cn } from "@/lib/utils";
 import { useHover } from "@/hooks/useHover";
 import { type ButtonProps, buttonVariants } from "@/components/ui/Button";
+
 
 const Pagination = ({ className, ...props }: React.ComponentProps<"nav">) => (
   <nav
@@ -38,16 +40,19 @@ const PaginationLink = ({ className, isActive, size = "icon", ...props }: Pagina
     aria-current={isActive ? "page" : undefined}
     className={cn(
       "cursor-pointer",
+
       buttonVariants({
         variant: isActive ? "secondary" : "ghost",
         size,
       }),
+
       className,
     )}
     {...props}
   />
 );
 PaginationLink.displayName = "PaginationLink";
+
 
 const PaginationPrevious = ({
   className,
@@ -62,10 +67,12 @@ const PaginationPrevious = ({
     <ChevronLeftIcon className="h-4 w-4" />
     <span>Previous</span>
   </PaginationLink>
+
 );
 PaginationPrevious.displayName = "PaginationPrevious";
 
 const PaginationNext = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (
+
   <PaginationLink
     aria-label="Go to next page"
     size="default"
@@ -75,10 +82,12 @@ const PaginationNext = ({ className, ...props }: React.ComponentProps<typeof Pag
     <span>Next</span>
     <ChevronRightIcon className="h-4 w-4" />
   </PaginationLink>
+
 );
 PaginationNext.displayName = "PaginationNext";
 
 const PaginationEllipsis = ({ className, ...props }: React.ComponentProps<"span">) => (
+
   <span
     aria-hidden
     className={cn("flex h-9 w-9 items-center justify-center", className)}
@@ -87,6 +96,7 @@ const PaginationEllipsis = ({ className, ...props }: React.ComponentProps<"span"
     <DotsHorizontalIcon className="h-4 w-4" />
     <span className="sr-only">More pages</span>
   </span>
+
 );
 PaginationEllipsis.displayName = "PaginationEllipsis";
 
@@ -157,6 +167,7 @@ const PaginationControl = ({
 };
 PaginationControl.displayName = "PaginationControl";
 
+
 export {
   Pagination,
   PaginationContent,
@@ -165,6 +176,8 @@ export {
   PaginationPrevious,
   PaginationNext,
   PaginationEllipsis,
+
   PaginationDots,
   PaginationControl,
 };
+
