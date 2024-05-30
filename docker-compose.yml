@@ -9,6 +9,7 @@ services:
     image: mysql:8
     container_name: db
     restart: unless-stopped
+    command: --max_allowed_packet=128M
     environment:
       MYSQL_ROOT_PASSWORD: r00tp4ssw0rd
       MYSQL_DATABASE: mia15
