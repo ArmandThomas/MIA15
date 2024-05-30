@@ -135,7 +135,7 @@ const Athletes: React.FC = () => {
                 <TableHeaderCell>Sport</TableHeaderCell>
                 <TableHeaderCell>Pays</TableHeaderCell>
                 <TableHeaderCell>Année de naissance</TableHeaderCell>
-                <TableHeaderCell>Médailles en solo</TableHeaderCell>
+                <TableHeaderCell>Médailles (en solo)</TableHeaderCell>
               </TableRow>
             </TableHead>
             <TableBody>
