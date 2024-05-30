@@ -7,6 +7,7 @@ import { createRouter } from "./router";
 import {Header} from "./components/Header"; // Importez votre composant Header
 import { Routes, Route } from "react-router-dom"; // Importez Routes et Route pour définir les routes
 import Athletes from "./pages/athletes";
+import Classement from "./pages/classement";
 import Home from "./pages";
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
           {/* <Route path="/visualisation" element={<Visualisation />} />
           <Route path="/predictions" element={<Predictions />} /> */}
           <Route path="/athletes" element={<Athletes />} />
+          <Route path="/classement" element={<Classement />} />
         </Routes>
       </BrowserRouter>
       <ReactQueryDevtools />
