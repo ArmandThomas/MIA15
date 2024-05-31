@@ -9,13 +9,23 @@ import { Routes, Route } from "react-router-dom"; // Importez Routes et Route po
 import Athletes from "./pages/athletes";
 import Classement from "./pages/classement";
 
-import {Predictions} from "@/pages/Predictions.tsx";
+import { Predictions } from "@/pages/Predictions.tsx";
 
 import Home from "./pages";
 
 export default function App() {
-  const [queryClient] = useState(() => new QueryClient());
   const [router] = useState(() => createRouter());
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            refetchOnWindowFocus: false,
+            staleTime: Number.POSITIVE_INFINITY,
+          },
+        },
+      }),
+  );
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -27,7 +37,7 @@ export default function App() {
           <Route path="/predictions" element={<Predictions />} /> */}
           <Route path="/athletes" element={<Athletes />} />
 
-            <Route path="/predictions" element={<Predictions />} />
+          <Route path="/predictions" element={<Predictions />} />
 
           <Route path="/classement" element={<Classement />} />
         </Routes>

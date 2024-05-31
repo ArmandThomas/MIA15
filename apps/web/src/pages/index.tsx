@@ -5,7 +5,7 @@ import { TableExample } from "@/components/ExampleTable";
 import Countdown from "@/components/Countdown";
 import { Callout } from "@/components/Callout";
 import { BarChartAxisLabelsExample } from "@/components/ExampleBarChart";
-import { AthleteMedalsTable } from "@/components/AthleteMedalsTable";
+import { AthleteMedals } from "@/components/athletes/AthleteMedals";
 
 export default function Home() {
   return (
@@ -48,7 +48,7 @@ export default function Home() {
           </TabsContent>
           <TabsContent value="notifications" className="space-y-4">
             <Card className="p-4">
-              <AthleteMedalsTable />
+              <AthleteMedals />
             </Card>
           </TabsContent>
         </Tabs>

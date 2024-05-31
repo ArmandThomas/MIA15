@@ -1,4 +1,4 @@
 export interface PaginationFilters {
-  page: number;
-  count: number;
+  page?: number;
+  count?: number;
 }

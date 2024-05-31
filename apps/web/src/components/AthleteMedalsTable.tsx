@@ -21,7 +21,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/Select";
-import { paginate } from "@/lib/paginate";
+import { Skeleton } from "./ui/Skeleton";
 
 function AthleteMedalsToolbar() {
   const [value, setValue] = useState("");
@@ -72,21 +72,52 @@ const defaultFilters: AthleteMedalsAggregateFilters = {
   page: 1,
 };
 
+function AthleteTableSkeleton({ rowCount }: { rowCount: number }) {
+  return (
+    <TableRoot className="mt-8">
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableHeaderCell>Athlète</TableHeaderCell>
+            <TableHeaderCell>Pays</TableHeaderCell>
+            <TableHeaderCell>Or</TableHeaderCell>
+            <TableHeaderCell>Argent</TableHeaderCell>
+            <TableHeaderCell>Bronze</TableHeaderCell>
+            <TableHeaderCell className="text-right">Total</TableHeaderCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {Array.from({ length: rowCount }).map((_, index) => (
+            <TableRow key={index}>
+              <TableCell>
+                <Skeleton className="w-36" />
+              </TableCell>
+              <TableCell>
+                <Skeleton className="w-36" />
+              </TableCell>
+              <TableCell>
+                <Skeleton className="w-36" />
+              </TableCell>
+              <TableCell>
+                <Skeleton className="w-36" />
+              </TableCell>
+              <TableCell>
+                <Skeleton className="w-36" />
+              </TableCell>
+              <TableCell className="text-right">
+                <Skeleton className="w-36" />
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableRoot>
+  );
+}
+
 export function AthleteMedalsTable() {
   const [filters, setFilters] = useState<AthleteMedalsAggregateFilters>(defaultFilters);
-  const medals = useGetMedalsByAthlete(filters);
-
-  if (medals.isPending) {
-    return <div>Loading...</div>;
-  }
-
-  if (medals.isError) {
-    return <div>Error: {medals.error.message}</div>;
-  }
-
-  const allData = medals.data.pages.flatMap((page) => page.data);
-  const paginatedData = paginate(allData, filters.page, filters.count);
-  const totalPages = medals.data.pages[0].totalPages;
+  const { isPending, isError, error, data: medals } = useGetMedalsByAthlete(filters);
 
   const getTotalMedals = (athlete: AthleteMedalsAggregate) => {
     return athlete.goldMedalCount + athlete.silverMedalCount + athlete.bronzeMedalCount;
@@ -115,23 +146,27 @@ export function AthleteMedalsTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {paginatedData.map((athlete) => (
-              <TableRow key={athlete.name} className="hover:bg-gray-50">
-                <TableCell className="">{athlete.name}</TableCell>
-                <TableCell>{athlete.country}</TableCell>
-                <TableCell>{athlete.goldMedalCount}</TableCell>
-                <TableCell>{athlete.silverMedalCount}</TableCell>
-                <TableCell>{athlete.bronzeMedalCount}</TableCell>
-                <TableCell className="text-right">{getTotalMedals(athlete)}</TableCell>
-              </TableRow>
-            ))}
+            {medals?.data ? (
+              medals.data.map((athlete) => (
+                <TableRow key={athlete.name} className="hover:bg-gray-50">
+                  <TableCell className="">{athlete.name}</TableCell>
+                  <TableCell>{athlete.country}</TableCell>
+                  <TableCell>{athlete.goldMedalCount}</TableCell>
+                  <TableCell>{athlete.silverMedalCount}</TableCell>
+                  <TableCell>{athlete.bronzeMedalCount}</TableCell>
+                  <TableCell className="text-right">{getTotalMedals(athlete)}</TableCell>
+                </TableRow>
+              ))
+            ) : (
+              <AthleteTableSkeleton rowCount={filters.count} />
+            )}
           </TableBody>
         </Table>
       </TableRoot>
 
       <DynamicPagination
         className="mt-4 justify-end"
-        total={totalPages}
+        total={medals?.totalPages ?? 0}
         page={filters.page}
         onChange={handlePageChange}
         showControls

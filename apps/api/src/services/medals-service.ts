@@ -18,6 +18,22 @@ function toPaginationResponse(
 ): PaginationResponse<AthleteMedalsAggregate> {
   const { page, count } = filters;
 
+  if (!page || !count) {
+    return {
+      data: rows.map(({ total, ...rest }) => ({
+        ...rest,
+      })),
+      totalCount: rows.at(0)?.total ?? 0,
+      totalPages: 1,
+      page: 1,
+      pageSize: rows.length,
+      hasPrevPage: false,
+      hasNextPage: false,
+      prevPage: null,
+      nextPage: null,
+    };
+  }
+
   const total = rows.at(0)?.total ?? 0;
   const totalPages = Math.ceil(total / count);
   const hasPrevPage = page > 1;
@@ -79,7 +95,9 @@ async function findAllByAthlete(
     totalCountQuery = filterByCountryCodeIso(totalCountQuery, filters.country);
   }
 
-  athleteMedalsQuery = withPagination(athleteMedalsQuery, filters.page, filters.count);
+  if (filters.page && filters.count) {
+    athleteMedalsQuery = withPagination(athleteMedalsQuery, filters.page, filters.count);
+  }
 
   const sqMedals = db.$with("sqMedals").as(athleteMedalsQuery);
   const sbTotal = db.$with("sbTotal").as(totalCountQuery);

@@ -4,8 +4,8 @@ import { sql } from "drizzle-orm";
 import { z } from "zod";
 
 export const paginationSchema = z.object({
-  page: z.coerce.number().int().positive().default(1),
-  count: z.coerce.number().int().positive().default(20),
+  page: z.coerce.number().int().positive().optional(),
+  count: z.coerce.number().int().positive().optional(),
 });
 
 export function getOffset(page: number, pageSize: number) {

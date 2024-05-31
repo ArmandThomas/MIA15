@@ -18,9 +18,11 @@ interface PaginationProps extends PaginationOptions {
   className?: string;
   /** Nombre de pages sautées par les points de suspension */
   dotJumps?: number;
+  /** Trigger au passage de la souris sur un élément */
+  onHover?: (page: number) => void;
 }
 
-export function DynamicPagination({ className, dotJumps = 5, ...opts }: PaginationProps) {
+export function DynamicPagination({ className, dotJumps = 5, onHover, ...opts }: PaginationProps) {
   const { currentPage, paginationItems, onPageChange, onNext, onPrevious } = usePagination(opts);
 
   const renderPaginationItem = React.useCallback(
@@ -40,20 +42,38 @@ export function DynamicPagination({ className, dotJumps = 5, ...opts }: Paginati
       }
 
       if (item === PaginationItemControl.Previous) {
-        return <PaginationControl onClick={onPrevious} disabled={isFirstPage} direction="left" />;
+        return (
+          <PaginationControl
+            onClick={onPrevious}
+            disabled={isFirstPage}
+            onMouseEnter={() => onHover?.(currentPage - 1)}
+            direction="left"
+          />
+        );
       }
 
       if (item === PaginationItemControl.Next) {
-        return <PaginationControl onClick={onNext} disabled={isLastPage} direction="right" />;
+        return (
+          <PaginationControl
+            onClick={onNext}
+            disabled={isLastPage}
+            onMouseEnter={() => onHover?.(currentPage + 1)}
+            direction="right"
+          />
+        );
       }
 
       return (
-        <PaginationLink onClick={() => onPageChange(item)} isActive={item === currentPage}>
+        <PaginationLink
+          onClick={() => onPageChange(item)}
+          onMouseEnter={() => onHover?.(item)}
+          isActive={item === currentPage}
+        >
           {item}
         </PaginationLink>
       );
     },
-    [currentPage, paginationItems, onPageChange, onNext, onPrevious, dotJumps, opts.total],
+    [currentPage, paginationItems, onPageChange, onNext, onPrevious, dotJumps, opts.total, onHover],
   );
 
   return (
